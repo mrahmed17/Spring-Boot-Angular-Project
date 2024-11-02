@@ -1,0 +1,64 @@
+<div class="container mt-4">
+  <div class="row mb-3">
+    <div class="col-md-4">
+      <label for="userFilter">Filter by User:</label>
+      <select id="userFilter" class="form-control" [(ngModel)]="selectedUserId" (change)="onFilterByUser()">
+        <option [ngValue]="null">All Users</option>
+        <option *ngFor="let user of users" [ngValue]="user.id">{{ user.fullName }}</option>
+      </select>
+    </div>
+    <div class="col-md-4">
+      <label for="nameSearch">Search by Name:</label>
+      <input id="nameSearch" type="text" class="form-control" [(ngModel)]="searchName" (keyup)="onSearchByName()"
+        placeholder="Enter name" />
+    </div>
+    <div class="col-md-4">
+      <label>Date Range:</label>
+      <div class="input-group">
+        <input type="date" class="form-control" [(ngModel)]="selectedDateRange.startDate" />
+        <input type="date" class="form-control" [(ngModel)]="selectedDateRange.endDate" />
+        <button class="btn btn-primary" (click)="onFilterByDateRange()">Filter</button>
+      </div>
+    </div>
+  </div>
+
+  <table class="table table-bordered table-hover">
+    <thead>
+      <tr>
+        <th>User</th>
+        <th>Advance Salary</th>
+        <th>Reason</th>
+        <th>Date</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let salary of filteredAdvanceSalaries">
+        <td>{{ salary.user.fullName }}</td>
+        <td>{{ salary.advanceSalary | currency }}</td>
+        <td>{{ salary.reason }}</td>
+        <td>{{ salary.advanceDate | date:'mediumDate' }}</td>
+        <td>
+          <button class="btn btn-info btn-sm" (click)="viewAdvanceSalary(salary.id)">View</button>
+          <button class="btn btn-warning btn-sm" (click)="editAdvanceSalary(salary.id)">Edit</button>
+          <button class="btn btn-danger btn-sm" (click)="deleteAdvanceSalary(salary.id)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+<nav aria-label="Page navigation" *ngIf="advanceSalaries.length > pageSize">
+  <ul class="pagination justify-content-center">
+    <li class="page-item" [class.disabled]="page === 1">
+      <a class="page-link" (click)="onPageChange(page - 1)">Previous</a>
+    </li>
+    <li class="page-item" *ngFor="let p of [].constructor(getTotalPages()); let i = index">
+      <a class="page-link" (click)="onPageChange(i + 1)">{{ i + 1 }}</a>
+    </li>
+    <li class="page-item" [class.disabled]="page === getTotalPages()">
+      <a class="page-link" (click)="onPageChange(page + 1)">Next</a>
+    </li>
+  </ul>
+</nav>
+
+</div>

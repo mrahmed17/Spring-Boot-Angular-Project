@@ -1,0 +1,19 @@
+<h2>Attendance List</h2>
+<table>
+ <thead>
+  <tr>
+   <th>ID</th>
+   <th>Date</th>
+   <th>Clock In Time</th>
+   <th>Clock Out Time</th>
+  </tr>
+ </thead>
+ <tbody>
+  <tr *ngFor="let attendance of attendances">
+   <td>{{ attendance.id }}</td>
+   <td>{{ attendance.date | date }}</td>
+   <td>{{ attendance.clockInTime | date:'shortTime' }}</td>
+   <td>{{ attendance.clockOutTime | date:'shortTime' }}</td>
+  </tr>
+ </tbody>
+</table>

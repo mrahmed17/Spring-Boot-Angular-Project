@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>HR & PM System Admin</title>
+ <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+ <!-- <ng-container *ngIf="userRole === 'Admin'"> -->
+  <!-- Sidebar -->
+  <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+   <div class="position-sticky pt-3">
+    <ul class="nav flex-column">
+     <li class="nav-item">
+      <a class="nav-link active" aria-current="page" routerLink="/dashboard">
+       <span data-feather="home"></span>
+       Dashboard
+      </a>
+     </li>
+
+
+     <!-- Admins Dropdown -->
+
+     <!-- <li class="nav-item">
+      <a class="nav-link dropdown-toggle" href="#" id="adminsDropdown" role="button" data-bs-toggle="dropdown"
+       aria-expanded="false">
+       <span data-feather="users"></span>
+       Admins
+      </a>
+      <ul class="dropdown-menu" aria-labelledby="adminsDropdown">
+       <li><a class="dropdown-item" href="/admins/list">Admins List</a></li>
+       <li><a class="dropdown-item" href="/admins/create">Create Admin</a></li>
+      </ul>
+     </li> -->
+
+     <!-- Managers Dropdown -->
+<!--       
+     <li class="nav-item">
+      <a class="nav-link dropdown-toggle" href="#" id="managersDropdown" role="button" data-bs-toggle="dropdown"
+       aria-expanded="false">
+       <span data-feather="users"></span>
+       Managers
+      </a>
+      <ul class="dropdown-menu" aria-labelledby="managersDropdown">
+       <li><a class="dropdown-item" href="/managers/list">Managers List</a></li>
+       <li><a class="dropdown-item" href="/managers/create">Create Manager</a></li>
+      </ul>
+     </li> -->
+
+     <!-- Employees Dropdown -->
+<!--       
+     <li class="nav-item">
+      <a class="nav-link dropdown-toggle" href="#" id="employeesDropdown" role="button" data-bs-toggle="dropdown"
+       aria-expanded="false">
+       <span data-feather="users"></span>
+       Employees
+      </a>
+      <ul class="dropdown-menu" aria-labelledby="employeesDropdown">
+       <li><a class="dropdown-item" href="/employees/list">Employees List</a></li>
+       <li><a class="dropdown-item" href="/employees/create">Create Employee</a></li>
+      </ul>
+     </li> -->
+
+     <!-- Locations Dropdown -->
+<!--       
+     <li class="nav-item">
+      <a class="nav-link dropdown-toggle" href="#" id="locationsDropdown" role="button" data-bs-toggle="dropdown"
+       aria-expanded="false">
+       <span data-feather="map-pin"></span>
+       Locations
+      </a>
+      <ul class="dropdown-menu" aria-labelledby="locationsDropdown">
+       <li><a class="dropdown-item" href="/locations/list">Locations List</a></li>
+       <li><a class="dropdown-item" href="/locations/create">Create Location</a></li>
+      </ul>
+     </li> -->
+
+     <!-- Departments Dropdown -->
+
+     <!-- <li class="nav-item">
+      <a class="nav-link dropdown-toggle" href="#" id="departmentsDropdown" role="button" data-bs-toggle="dropdown"
+       aria-expanded="false">
+       <span data-feather="layers"></span>
+       Departments
+      </a>
+      <ul class="dropdown-menu" aria-labelledby="departmentsDropdown">
+       <li><a class="dropdown-item" href="/departments/list">Departments List</a></li>
+       <li><a class="dropdown-item" href="/departments/create">Create Department</a></li>
+      </ul>
+     </li> -->
+
+     <!-- Attendances Dropdown -->
+      
+     <li class="nav-item">
+      <a class="nav-link dropdown-toggle" href="#" id="attendancesDropdown" role="button" data-bs-toggle="dropdown"
+       aria-expanded="false">
+       <span data-feather="check-circle"></span>
+       Attendances
+      </a>
+      <ul class="dropdown-menu" aria-labelledby="attendancesDropdown">
+       <li><a class="dropdown-item" href="/attendances/list">Attendances List</a></li>
+       <li><a class="dropdown-item" href="/attendances/create">Create Attendance</a></li>
+      </ul>
+     </li>
+
+     <!-- Leaves Dropdown -->
+     <!-- <li class="nav-item">
+          <a class="nav-link dropdown-toggle" href="#" id="leavesDropdown" role="button" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            <span data-feather="calendar"></span>
+            Leaves
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="leavesDropdown">
+            <li><a class="dropdown-item" href="/leaves/list">Leaves List</a></li>
+            <li><a class="dropdown-item" href="/leaves/create">Create Leave</a></li>
+          </ul>
+        </li> -->
+
+     <!-- Payrolls Dropdown -->
+<!-- 
+     <li class="nav-item">
+      <a class="nav-link dropdown-toggle" href="#" id="payrollsDropdown" role="button" data-bs-toggle="dropdown"
+       aria-expanded="false">
+       <span data-feather="dollar-sign"></span>
+       Payrolls
+      </a>
+      <ul class="dropdown-menu" aria-labelledby="payrolslDropdown">
+       <li><a class="dropdown-item" href="/payrolls/list">Payrolls List</a></li>
+       <li><a class="dropdown-item" href="/payrolls/create">Create Payroll</a></li>
+      </ul>
+     </li> -->
+
+     <!-- Performances Dropdown -->
+     <!-- <li class="nav-item">
+      <a class="nav-link dropdown-toggle" href="#" id="performancesDropdown" role="button" data-bs-toggle="dropdown"
+       aria-expanded="false">
+       <span data-feather="bar-chart-2"></span>
+       Performances
+      </a>
+      <ul class="dropdown-menu" aria-labelledby="performancesDropdown">
+       <li><a class="dropdown-item" href="/performances/list">Performances List</a></li>
+       <li><a class="dropdown-item" href="/performances/create">Create Performance</a></li>
+      </ul>
+     </li> -->
+
+     <!-- Feedbacks Dropdown -->
+     <!-- <li class="nav-item">
+      <a class="nav-link dropdown-toggle" href="#" id="feedbacksDropdown" role="button" data-bs-toggle="dropdown"
+       aria-expanded="false">
+       <span data-feather="message-circle"></span>
+       Feedbacks
+      </a>
+      <ul class="dropdown-menu" aria-labelledby="feedbacksDropdown">
+       <li><a class="dropdown-item" href="/feedbacks/list">Feedbacks List</a></li>
+       <li><a class="dropdown-item" href="/feedbacks/create">Create Feedback</a></li>
+      </ul>
+     </li> -->
+
+     <!-- Authentication -->
+
+     <!-- <li class="nav-item">
+      <a class="nav-link" routerLink="/userprofile">
+       <span data-feather="user"></span>
+       Profile
+      </a>
+     </li>
+
+     <li class="nav-item">
+      <a class="nav-link" routerLink="/createprofille">
+       <span data-feather="user-plus"></span>
+       Create Profile
+      </a>
+     </li>
+     <li class="nav-item">
+      <a class="nav-link" routerLink="/login">
+       <span data-feather="log-in"></span>
+       Login
+      </a>
+     </li>
+     <li class="nav-item">
+      <a class="nav-link" routerLink="/logout">
+       <span data-feather="log-out"></span>
+       Logout
+      </a>
+     </li> -->
+     <!-- <li class="nav-item">
+          <a class="nav-link" routerLink="/unauthorized">
+            <span data-feather="alert-circle"></span>
+            Unauthorized
+          </a>
+        </li> -->
+    </ul>
+   </div>
+  </nav>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://unpkg.com/feather-icons"></script>
+  <script>
+   feather.replace()
+  </script>
+ <!-- </ng-container> -->
+</body>
+
+</html>
+
+<!-- <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+  <div class="position-sticky pt-3">
+    <ul class="nav flex-column">
+      <li class="nav-item">
+        <a class="nav-link active" routerLink="/dashboard" routerLinkActive="active">
+          <span data-feather="home"></span>
+          Dashboard
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/userprofile" routerLinkActive="active">
+          <span data-feather="user"></span>
+          Profile
+        </a>
+      </li>
+
+    
+      <li class="nav-item">
+        <a class="nav-link dropdown-toggle" href="#" id="employeesDropdown" role="button" data-bs-toggle="dropdown"
+          aria-expanded="false">
+          <span data-feather="users"></span>
+          Employees
+        </a>
+        <ul class="dropdown-menu" aria-labelledby="employeesDropdown">
+          <li><a class="dropdown-item" routerLink="/employees/list">Employee List</a></li>
+          <li><a class="dropdown-item" routerLink="/employees/create">Create Employee</a></li>
+        </ul>
+      </li>
+
+     
+      <li class="nav-item">
+        <a class="nav-link dropdown-toggle" href="#" id="locationsDropdown" role="button" data-bs-toggle="dropdown"
+          aria-expanded="false">
+          <span data-feather="map-pin"></span>
+          Locations
+        </a>
+        <ul class="dropdown-menu" aria-labelledby="locationsDropdown">
+          <li><a class="dropdown-item" routerLink="/locations/list">Location List</a></li>
+          <li><a class="dropdown-item" routerLink="/locations/create">Create Location</a></li>
+        </ul>
+      </li>
+
+  
+      <li class="nav-item">
+        <a class="nav-link dropdown-toggle" href="#" id="departmentsDropdown" role="button" data-bs-toggle="dropdown"
+          aria-expanded="false">
+          <span data-feather="layers"></span>
+          Departments
+        </a>
+        <ul class="dropdown-menu" aria-labelledby="departmentsDropdown">
+          <li><a class="dropdown-item" routerLink="/departments/list">Department List</a></li>
+          <li><a class="dropdown-item" routerLink="/departments/create">Create Department</a></li>
+        </ul>
+      </li>
+
+
+      <li class="nav-item">
+        <a class="nav-link dropdown-toggle" href="#" id="attendanceDropdown" role="button" data-bs-toggle="dropdown"
+          aria-expanded="false">
+          <span data-feather="check-circle"></span>
+          Attendance
+        </a>
+        <ul class="dropdown-menu" aria-labelledby="attendanceDropdown">
+          <li><a class="dropdown-item" routerLink="/attendance/list">Attendance List</a></li>
+          <li><a class="dropdown-item" routerLink="/attendance/create">Create Attendance</a></li>
+        </ul>
+      </li>
+
+
+      <li class="nav-item">
+        <a class="nav-link dropdown-toggle" href="#" id="leaveDropdown" role="button" data-bs-toggle="dropdown"
+          aria-expanded="false">
+          <span data-feather="calendar"></span>
+          Leaves
+        </a>
+        <ul class="dropdown-menu" aria-labelledby="leaveDropdown">
+          <li><a class="dropdown-item" routerLink="/leave/list">Leave List</a></li>
+          <li><a class="dropdown-item" routerLink="/leave/create">Create Leave</a></li>
+        </ul>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link dropdown-toggle" href="#" id="payrollDropdown" role="button" data-bs-toggle="dropdown"
+          aria-expanded="false">
+          <span data-feather="dollar-sign"></span>
+          Payroll
+        </a>
+        <ul class="dropdown-menu" aria-labelledby="payrollDropdown">
+          <li><a class="dropdown-item" routerLink="/payroll/list">Payroll List</a></li>
+          <li><a class="dropdown-item" routerLink="/payroll/create">Create Payroll</a></li>
+        </ul>
+      </li>
+
+
+      <li class="nav-item">
+        <a class="nav-link dropdown-toggle" href="#" id="performanceDropdown" role="button" data-bs-toggle="dropdown"
+          aria-expanded="false">
+          <span data-feather="bar-chart-2"></span>
+          Performance
+        </a>
+        <ul class="dropdown-menu" aria-labelledby="performanceDropdown">
+          <li><a class="dropdown-item" routerLink="/performance/list">Performance List</a></li>
+          <li><a class="dropdown-item" routerLink="/performance/create">Create Performance</a></li>
+        </ul>
+      </li>
+
+
+      <li class="nav-item">
+        <a class="nav-link dropdown-toggle" href="#" id="feedbacksDropdown" role="button" data-bs-toggle="dropdown"
+          aria-expanded="false">
+          <span data-feather="message-circle"></span>
+          Feedbacks
+        </a>
+        <ul class="dropdown-menu" aria-labelledby="feedbacksDropdown">
+          <li><a class="dropdown-item" routerLink="/feedbacks/list">Feedback List</a></li>
+          <li><a class="dropdown-item" routerLink="/feedbacks/create">Create Feedback</a></li>
+        </ul>
+      </li>
+
+    
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/register">
+          <span data-feather="user-plus"></span>
+          Register User
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/login">
+          <span data-feather="log-in"></span>
+          Login
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/logout">
+          <span data-feather="log-out"></span>
+          Logout
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/unauthorized">
+          <span data-feather="alert-circle"></span>
+          Unauthorized
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>
+ -->

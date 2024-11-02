@@ -1,0 +1,31 @@
+<div class="container">
+ <h2>Update Department</h2>
+ <form [formGroup]="departmentForm" (ngSubmit)="onSubmit()">
+  <div class="form-group">
+   <label for="departmentName">Department Name</label>
+   <input type="text" id="departmentName" formControlName="departmentName" class="form-control" required />
+   <div *ngIf="departmentForm.get('departmentName')?.invalid && departmentForm.get('departmentName')?.touched"
+    class="text-danger">
+    Department name is required.
+   </div>
+  </div>
+
+  <div class="form-group">
+   <label for="numOfEmployees">Number of Employees</label>
+   <input type="number" id="numOfEmployees" formControlName="numOfEmployees" class="form-control" required />
+   <div *ngIf="departmentForm.get('numOfEmployees')?.invalid && departmentForm.get('numOfEmployees')?.touched"
+    class="text-danger">
+    Number of employees is required.
+   </div>
+  </div>
+
+  <div class="form-group">
+   <label for="photo">Department Photo</label>
+   <input type="file" id="photo" (change)="onPhotoSelected($event)" class="form-control" />
+  </div>
+
+  <button type="submit" class="btn btn-primary" [disabled]="departmentForm.invalid">
+   Update Department
+  </button>
+ </form>
+</div>

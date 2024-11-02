@@ -1,0 +1,6 @@
+<div *ngFor="let salary of salaries">
+ <p>Net Salary: {{ salary.netSalary | currency }}</p>
+ <p>Payment Date: {{ salary.paymentDate | date:'mediumDate' }}</p>
+<p>Bonuses: {{ salary.bonuses.bonusAmount | currency }}</p>
+
+</div>

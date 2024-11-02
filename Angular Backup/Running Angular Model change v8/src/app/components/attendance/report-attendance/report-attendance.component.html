@@ -1,0 +1,32 @@
+<div>
+  <h1>Attendance Report</h1>
+
+  <h2>Today's Attendance</h2>
+  <ul>
+    <li *ngFor="let attendance of todayAttendance">
+      User ID: {{ attendance.user.id }}, Full Name: {{ attendance.user.fullName }},
+      Status: {{ attendance.status }},
+      Clock In: {{ attendance.clockInTime | date:'shortTime' }},
+      Clock Out: {{ attendance.clockOutTime ? (attendance.clockOutTime | date:'shortTime') : 'Not Checked Out' }}
+    </li>
+  </ul>
+
+  <h2>Peak Attendance</h2>
+  <div>
+    <h3>Day</h3>
+    <p *ngFor="let day of peakAttendanceDay">{{ day | json }}</p>
+
+    <h3>Month</h3>
+    <p *ngFor="let month of peakAttendanceMonth">{{ month | json }}</p>
+
+    <h3>Year</h3>
+    <p *ngFor="let year of peakAttendanceYear">{{ year | json }}</p>
+  </div>
+
+  <h2>Users Without Attendance Today</h2>
+  <ul>
+    <li *ngFor="let user of usersWithoutAttendanceToday">
+      User ID: {{ user.id }}, Full Name: {{ user.fullName }}
+    </li>
+  </ul>
+</div>

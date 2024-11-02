@@ -1,0 +1,78 @@
+<div class="container mt-4">
+ <h2 class="text-center">Advance Salary Report</h2>
+
+ <!-- Filters Section -->
+ <div class="row mb-3">
+  <!-- User Filter -->
+  <div class="col-md-4">
+   <label for="userFilter" class="form-label">Filter by User</label>
+   <select id="userFilter" class="form-select" [(ngModel)]="selectedUserId" (change)="onFilterByUser()">
+    <option value="" selected>All Users</option>
+    <option *ngFor="let user of users" [value]="user.id">
+     {{ user.fullName }}
+    </option>
+   </select>
+  </div>
+
+  <!-- Date Range Filter -->
+  <div class="col-md-4">
+   <label for="startDate" class="form-label">Start Date</label>
+   <input id="startDate" type="date" class="form-control" [(ngModel)]="selectedDateRange.startDate" />
+  </div>
+  <div class="col-md-4">
+   <label for="endDate" class="form-label">End Date</label>
+   <input id="endDate" type="date" class="form-control" [(ngModel)]="selectedDateRange.endDate" />
+   <button class="btn btn-primary mt-2" (click)="onFilterByDateRange()">
+    Filter by Date Range
+   </button>
+  </div>
+ </div>
+
+ <!-- Search Section -->
+ <div class="row mb-3">
+  <div class="col-md-8">
+   <label for="searchName" class="form-label">Search by Name</label>
+   <input id="searchName" type="text" class="form-control" placeholder="Enter user name" [(ngModel)]="searchName"
+    (input)="onSearchByName()" />
+  </div>
+
+  <!-- Export Button -->
+  <div class="col-md-4 d-flex align-items-end">
+   <button class="btn btn-success w-100" (click)="exportToCSV()">
+    Export to CSV
+   </button>
+  </div>
+ </div>
+
+ <!-- Report Table -->
+ <div class="table-responsive mt-3">
+  <table class="table table-bordered table-striped">
+   <thead class="thead-dark">
+    <tr>
+     <th>User</th>
+     <th>Advance Salary</th>
+     <th>Reason</th>
+     <th>Advance Date</th>
+    </tr>
+   </thead>
+   <tbody>
+    <tr *ngFor="let salary of filteredAdvanceSalaries">
+     <td>{{ salary.user.fullName }}</td>
+     <td>{{ salary.advanceSalary | currency }}</td>
+     <td>{{ salary.reason }}</td>
+     <td>{{ salary.advanceDate | date: 'shortDate' }}</td>
+    </tr>
+    <tr *ngIf="filteredAdvanceSalaries.length === 0">
+     <td colspan="4" class="text-center">No advance salaries found.</td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+
+ <!-- Total Amount Section -->
+ <div class="text-end mt-3">
+  <h5>Total Advance Salary: {{ totalAdvanceSalary | currency }}</h5>
+ </div>
+</div>
+
+<button class="btn btn-success" (click)="exportToCSV()">Export to CSV</button>

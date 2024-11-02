@@ -1,0 +1,16 @@
+ <div class="container-fluid g-0">
+    <app-header></app-header>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-2">
+          <app-sidebar ngSkipHydration></app-sidebar>
+        </div>
+        <div class="bg-white col-md-10">
+          <app-breadcrumb></app-breadcrumb>
+          <app-notification></app-notification>
+          <router-outlet></router-outlet>
+          <!-- <app-footer></app-footer> -->
+        </div>
+      </div>
+    </div>
+  </div>

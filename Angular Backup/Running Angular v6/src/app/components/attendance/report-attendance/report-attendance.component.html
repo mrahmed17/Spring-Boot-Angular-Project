@@ -1,0 +1,184 @@
+<div class="container mt-3">
+  <h2><fa-icon [icon]="faListUl"></fa-icon> Attendance List</h2>
+
+  <!-- Error Message -->
+  <div *ngIf="errorMessage" class="alert alert-danger">
+    {{ errorMessage }}
+  </div>
+
+  <!-- Filter Section -->
+  <div class="row mb-3">
+    <div class="col-md-3">
+      <label for="startDate">Start Date</label>
+      <input type="date" id="startDate" class="form-control" [(ngModel)]="startDate" />
+    </div>
+    <div class="col-md-3">
+      <label for="endDate">End Date</label>
+      <input type="date" id="endDate" class="form-control" [(ngModel)]="endDate" />
+    </div>
+    <div class="col-md-3">
+      <label for="userSelect">Select User</label>
+      <select id="userSelect" class="form-control" [(ngModel)]="selectedUserId">
+        <option value="" disabled>Select a user</option>
+        <option *ngFor="let user of users" [value]="user.id">
+          {{ user.fullName }}
+        </option>
+      </select>
+    </div>
+    <div class="col-md-3">
+      <label for="statusSelect">Attendance Status</label>
+      <select id="statusSelect" class="form-control" [(ngModel)]="selectedStatus">
+        <option value="" disabled>Select status</option>
+        <option value="PRESENT">Present</option>
+        <option value="ABSENT">Absent</option>
+        <option value="LATE">Late</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- Action Buttons -->
+  <div class="row mb-3">
+    <div class="col-md-6">
+      <button class="btn btn-primary" (click)="getUsersWithAttendanceInRange()">
+        <fa-icon [icon]="faSearch"></fa-icon> Search
+      </button>
+      <button class="btn btn-secondary" (click)="resetFilters()">
+        <fa-icon [icon]="faExclamationTriangle"></fa-icon> Reset
+      </button>
+    </div>
+    <div class="col-md-6">
+      <button class="btn btn-info" (click)="getPeakAttendanceDay()">
+        <fa-icon [icon]="faCalendarDay"></fa-icon> Peak Attendance by Day
+      </button>
+      <button class="btn btn-info" (click)="getPeakAttendanceMonth()">
+        <fa-icon [icon]="faCalendarAlt"></fa-icon> Peak Attendance by Month
+      </button>
+      <button class="btn btn-info" (click)="getPeakAttendanceYear()">
+        <fa-icon [icon]="faCalendarAlt"></fa-icon> Peak Attendance by Year
+      </button>
+      <button class="btn btn-info" (click)="getHolidayAttendance(['2024-01-01', '2024-12-31'])">
+        <fa-icon [icon]="faCalendarAlt"></fa-icon> Holiday Attendance
+      </button>
+      <button class="btn btn-info" (click)="getLateCheckIns('09:00')">
+        <fa-icon [icon]="faCalendarAlt"></fa-icon> Late Check-Ins
+      </button>
+      <button class="btn btn-info" (click)="getRegularEmployeesForShiftPlanning()">
+        <fa-icon [icon]="faCalendarAlt"></fa-icon> Regular Employees
+      </button>
+    </div>
+  </div>
+
+  <!-- Attendance Data Table -->
+  <div *ngIf="attendances.length > 0">
+    <h3>Attendance Data</h3>
+    <table class="table table-striped table-hover">
+      <thead>
+        <tr>
+          <th><fa-icon [icon]="faIdBadge"></fa-icon> ID</th>
+          <th><fa-icon [icon]="faCalendarAlt"></fa-icon> Date</th>
+          <th><fa-icon [icon]="faClock"></fa-icon> Clock In Time</th>
+          <th><fa-icon [icon]="faClock"></fa-icon> Clock Out Time</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let attendance of attendances">
+          <td>{{ attendance.id }}</td>
+          <td>{{ attendance.date | date }}</td>
+          <td>{{ attendance.clockInTime | date:'shortTime' }}</td>
+          <td>{{ attendance.clockOutTime | date:'shortTime' }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Peak Attendance -->
+  <div class="mt-4"
+    *ngIf="peakAttendanceDay.length > 0 || peakAttendanceMonth.length > 0 || peakAttendanceYear.length > 0">
+    <h3>Peak Attendance</h3>
+    <div *ngIf="peakAttendanceDay.length > 0">
+      <h4>By Day</h4>
+      <ul>
+        <li *ngFor="let item of peakAttendanceDay">{{ item }}</li>
+      </ul>
+    </div>
+    <div *ngIf="peakAttendanceMonth.length > 0">
+      <h4>By Month</h4>
+      <ul>
+        <li *ngFor="let item of peakAttendanceMonth">{{ item }}</li>
+      </ul>
+    </div>
+    <div *ngIf="peakAttendanceYear.length > 0">
+      <h4>By Year</h4>
+      <ul>
+        <li *ngFor="let item of peakAttendanceYear">{{ item }}</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Holiday Attendance -->
+  <div class="mt-4" *ngIf="holidayAttendance.length > 0">
+    <h3>Holiday Attendance</h3>
+    <ul>
+      <li *ngFor="let item of holidayAttendance">{{ item }}</li>
+    </ul>
+  </div>
+
+  <!-- Late Check-Ins -->
+  <div class="mt-4" *ngIf="lateCheckIns.length > 0">
+    <h3>Late Check-Ins</h3>
+    <ul>
+      <li *ngFor="let item of lateCheckIns">{{ item }}</li>
+    </ul>
+  </div>
+
+  <!-- Regular Employees -->
+  <div class="mt-4" *ngIf="regularEmployees.length > 0">
+    <h3>Regular Employees for Shift Planning</h3>
+    <ul>
+      <li *ngFor="let employee of regularEmployees">{{ employee }}</li>
+    </ul>
+  </div>
+</div>
+
+
+
+<!-- Old part below -->
+
+<!-- 
+<h2>Attendance Report</h2>
+<div>
+ <button (click)="getAttendanceById(1)">Get Attendance By ID</button>
+ <button (click)="getAttendancesByUserId(1)">Get Attendances By User ID</button>
+ <button (click)="getUsersWithAttendanceInRange('2024-01-01', '2024-12-31')">Get Users With Attendance In Range</button>
+</div>
+
+<div *ngIf="attendance">
+ <h3>Attendance Details:</h3>
+ <p>ID: {{ attendance.id }}</p>
+ <p>User Name: {{ attendance.user.fullName }}</p>
+ <p>Date: {{ attendance.date | date }}</p>
+ <p>Clock In Time: {{ attendance.clockInTime | date: 'shortTime' }}</p>
+ <p>Clock Out Time: {{ attendance.clockOutTime | date: 'shortTime' }}</p>
+</div>
+
+<div *ngIf="attendances.length > 0">
+ <h3>Attendances By User:</h3>
+ <ul>
+  <li *ngFor="let attendance of attendances">
+   ID: {{ attendance.id }} - User: {{ attendance.user.fullName }} - Date: {{ attendance.date | date }}
+  </li>
+ </ul>
+</div>
+
+<div *ngIf="userAttendances">
+ <h3>Users With Attendance In Range:</h3>
+ <ul>
+  <li *ngFor="let user of userAttendances.keys()">
+   User: {{ user.fullName }} - Attendances: {{ userAttendances.get(user) }}
+  </li>
+ </ul>
+</div>
+
+<div *ngIf="errorMessage">
+ <p>{{ errorMessage }}</p>
+</div> -->

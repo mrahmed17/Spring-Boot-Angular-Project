@@ -1,0 +1,35 @@
+<div class="container mt-4">
+ <h2 class="text-center">Leave Summary</h2>
+
+ <!-- Error message -->
+ <div *ngIf="errorMessage" class="alert alert-danger">
+  {{ errorMessage }}
+ </div>
+
+ <!-- Leave Summary Table -->
+ <div *ngIf="leaveSummary.length > 0; else noData">
+  <table class="table table-bordered table-striped">
+   <thead class="thead-dark">
+    <tr>
+     <th>Leave Type</th>
+     <th>Total Days Taken</th>
+     <th>Remaining Days</th>
+    </tr>
+   </thead>
+   <tbody>
+    <tr *ngFor="let summary of leaveSummary">
+     <td>{{ summary.leaveType }}</td>
+     <td>{{ summary.totalDays }}</td>
+     <td>{{ summary.remainingDays }}</td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+
+ <!-- No Data Template -->
+ <ng-template #noData>
+  <div class="alert alert-info text-center">
+   No leave records found.
+  </div>
+ </ng-template>
+</div>

@@ -1,0 +1,194 @@
+<div class="container">
+ <h2>Edit User</h2>
+
+ <form [formGroup]="editUserForm" (ngSubmit)="onSubmit()" novalidate enctype="multipart/form-data">
+  <div class="row">
+   <div class="col-md-6">
+    <div class="form-group">
+     <label for="fullName">
+      <fa-icon [icon]="faUser" class="mandatory-icon"></fa-icon> Full Name:
+     </label>
+     <input type="text" id="fullName" formControlName="fullName" class="form-control"
+      [class.is-invalid]="editUserForm.controls['fullName'].invalid && editUserForm.controls['fullName'].touched" />
+     <div *ngIf="editUserForm.controls['fullName'].invalid && editUserForm.controls['fullName'].touched"
+      class="invalid-feedback">
+      Full Name is required.
+     </div>
+    </div>
+   </div>
+
+   <div class="col-md-6">
+    <div class="form-group">
+     <label for="email">
+      <fa-icon [icon]="faEnvelope" class="mandatory-icon"></fa-icon> Email:
+     </label>
+     <input type="email" id="email" formControlName="email" class="form-control"
+      [class.is-invalid]="editUserForm.controls['email'].invalid && editUserForm.controls['email'].touched" />
+     <div *ngIf="editUserForm.controls['email'].invalid && editUserForm.controls['email'].touched"
+      class="invalid-feedback">
+      Please enter a valid email.
+     </div>
+    </div>
+   </div>
+  </div>
+
+  <div class="row">
+   <div class="col-md-6">
+    <div class="form-group">
+     <label for="password">
+      <fa-icon [icon]="faKey" class="mandatory-icon"></fa-icon> Password:
+     </label>
+     <input type="password" id="password" formControlName="password" class="form-control"
+      [class.is-invalid]="editUserForm.controls['password'].invalid && editUserForm.controls['password'].touched" />
+     <div *ngIf="editUserForm.controls['password'].invalid && editUserForm.controls['password'].touched"
+      class="invalid-feedback">
+      Password is required.
+     </div>
+    </div>
+   </div>
+
+   <div class="col-md-6">
+    <div class="form-group">
+     <label for="address">
+      <fa-icon [icon]="faHome"></fa-icon> Address:
+     </label>
+     <input type="text" id="address" formControlName="address" class="form-control"
+      [class.is-invalid]="editUserForm.controls['address'].invalid && editUserForm.controls['address'].touched" />
+     <div *ngIf="editUserForm.controls['address'].invalid && editUserForm.controls['address'].touched"
+      class="invalid-feedback">
+      Address is required.
+     </div>
+    </div>
+   </div>
+  </div>
+
+  <div class="row">
+   <div class="col-md-6">
+    <div class="form-group">
+     <label for="gender">
+      <fa-icon [icon]="faVenusMars"></fa-icon> Gender:
+     </label>
+     <select id="gender" formControlName="gender" class="form-control">
+      <option value="">Select Gender</option>
+      <option value="Male">Male</option>
+      <option value="Female">Female</option>
+      <option value="Other">Other</option>
+     </select>
+    </div>
+   </div>
+
+   <div class="col-md-6">
+    <div class="form-group">
+     <label for="dateOfBirth">
+      <fa-icon [icon]="faCalendarAlt"></fa-icon> Date of Birth:
+     </label>
+     <input type="date" id="dateOfBirth" formControlName="dateOfBirth" class="form-control"
+      [class.is-invalid]="editUserForm.controls['dateOfBirth'].invalid && editUserForm.controls['dateOfBirth'].touched" />
+     <div *ngIf="editUserForm.controls['dateOfBirth'].invalid && editUserForm.controls['dateOfBirth'].touched"
+      class="invalid-feedback">
+      Date of Birth is required.
+     </div>
+    </div>
+   </div>
+  </div>
+
+  <div class="row">
+   <div class="col-md-6">
+    <div class="form-group">
+     <label for="nationalId">
+      <fa-icon [icon]="faIdCard"></fa-icon> National ID:
+     </label>
+     <input type="text" id="nationalId" formControlName="nationalId" class="form-control"
+      [class.is-invalid]="editUserForm.controls['nationalId'].invalid && editUserForm.controls['nationalId'].touched" />
+     <div *ngIf="editUserForm.controls['nationalId'].invalid && editUserForm.controls['nationalId'].touched"
+      class="invalid-feedback">
+      National ID is required.
+     </div>
+    </div>
+   </div>
+
+   <div class="col-md-6">
+    <div class="form-group">
+     <label for="contact">
+      <fa-icon [icon]="faPhone"></fa-icon> Contact:
+     </label>
+     <input type="text" id="contact" formControlName="contact" class="form-control"
+      [class.is-invalid]="editUserForm.controls['contact'].invalid && editUserForm.controls['contact'].touched" />
+     <div *ngIf="editUserForm.controls['contact'].invalid && editUserForm.controls['contact'].touched"
+      class="invalid-feedback">
+      Contact is required.
+     </div>
+    </div>
+   </div>
+  </div>
+
+  <div class="row">
+   <div class="col-md-6">
+    <div class="form-group">
+     <label for="basicSalary">
+      <fa-icon [icon]="faDollarSign"></fa-icon> Basic Salary:
+     </label>
+     <input type="number" id="basicSalary" formControlName="basicSalary" class="form-control"
+      [class.is-invalid]="editUserForm.controls['basicSalary'].invalid && editUserForm.controls['basicSalary'].touched" />
+     <div *ngIf="editUserForm.controls['basicSalary'].invalid && editUserForm.controls['basicSalary'].touched"
+      class="invalid-feedback">
+      Basic Salary is required.
+     </div>
+    </div>
+   </div>
+
+   <div class="col-md-6">
+    <div class="form-group">
+     <label for="joinedDate">
+      <fa-icon [icon]="faCalendarDay"></fa-icon> Joined Date:
+     </label>
+     <input type="date" id="joinedDate" formControlName="joinedDate" class="form-control"
+      [class.is-invalid]="editUserForm.controls['joinedDate'].invalid && editUserForm.controls['joinedDate'].touched" />
+     <div *ngIf="editUserForm.controls['joinedDate'].invalid && editUserForm.controls['joinedDate'].touched"
+      class="invalid-feedback">
+      Joined Date is required.
+     </div>
+    </div>
+   </div>
+  </div>
+
+  <div class="row">
+   <div class="col-md-6">
+    <div class="form-group">
+     <label for="role">
+      <fa-icon [icon]="faUserTag"></fa-icon> Role:
+     </label>
+     <select id="role" formControlName="role" class="form-control">
+      <option value="">Select Role</option>
+      <option value="ADMIN">Admin</option>
+      <option value="COMPANY">Company</option>
+      <option value="MANAGER">Manager</option>
+      <option value="PAYROLL">Payroll</option>
+      <option value="EMPLOYEE">Employee</option>
+     </select>
+    </div>
+   </div>
+
+   <div class="col-md-6">
+    <div class="form-group">
+     <label for="profilePhoto">
+      <fa-icon [icon]="faImage"></fa-icon> Profile Photo:
+     </label>
+     <input type="file" id="profilePhoto" (change)="onFileChange($event)" class="form-control" />
+    </div>
+   </div>
+  </div>
+
+  <div *ngIf="errorMessage" class="alert alert-danger">
+   {{ errorMessage }}
+  </div>
+  <div *ngIf="successMessage" class="alert alert-success">
+   {{ successMessage }}
+  </div>
+  <div class="button-container">
+   <button type="submit" class="btn btn-primary" [disabled]="editUserForm.invalid">
+    <fa-icon [icon]="faUserEdit"></fa-icon> Edit User
+   </button>
+  </div>
+ </form>
+</div>

@@ -1,0 +1,20 @@
+.user-detail {
+  padding: 20px;
+}
+
+.user-photo img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+}
+
+.user-detail p {
+  font-size: 1.1em;
+}
+
+@media print {
+  .user-photo img {
+    width: 100px;
+    height: 100px;
+  }
+}

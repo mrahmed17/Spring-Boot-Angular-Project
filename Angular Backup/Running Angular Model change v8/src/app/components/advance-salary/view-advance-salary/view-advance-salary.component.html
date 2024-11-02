@@ -1,0 +1,48 @@
+<div class="container mt-5">
+  <div *ngIf="isLoading" class="text-center">
+    <div class="spinner-border" role="status">
+      <span class="sr-only">Loading...</span>
+    </div>
+  </div>
+
+  <div *ngIf="!isLoading && advanceSalary" class="card">
+    <div class="card-header">
+      <h3>Advance Salary Details</h3>
+    </div>
+    <div class="card-body">
+      <div class="row mb-3">
+        <div class="col-md-6">
+          <strong>User:</strong> {{ advanceSalary.user.fullName }}
+        </div>
+        <div class="col-md-6">
+          <strong>Email:</strong> {{ advanceSalary.user.email }}
+        </div>
+      </div>
+
+      <div class="row mb-3">
+        <div class="col-md-6">
+          <strong>Advance Salary:</strong> {{ advanceSalary.advanceSalary | currency }}
+        </div>
+        <div class="col-md-6">
+          <strong>Advance Date:</strong> {{ advanceSalary.advanceDate | date:'mediumDate' }}
+        </div>
+      </div>
+
+      <div class="row mb-3">
+        <div class="col-md-12">
+          <strong>Reason:</strong> {{ advanceSalary.reason }}
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-12 text-center">
+          <button (click)="backToList()" class="btn btn-primary">Back to List</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="!isLoading && !advanceSalary" class="alert alert-danger">
+    <strong>Error:</strong> {{ errorMessage }}
+  </div>
+</div>

@@ -1,0 +1,41 @@
+<div class="container">
+ <h2>Company List</h2>
+
+ <div class="form-group">
+  <input type="text" class="form-control" placeholder="Search by company name" [(ngModel)]="filterText"
+   (keyup)="applyFilter()" />
+ </div>
+
+ <div *ngIf="filteredCompanies.length > 0">
+  <div *ngFor="let company of filteredCompanies" class="card mb-4">
+   <div class="card-body">
+    <h5 class="card-title">{{ company.companyName }}</h5>
+    <p class="card-text">ID: {{ company.id }}</p>
+
+    <button class="btn btn-primary" (click)="viewCompany(company.id)">View</button>
+    <button class="btn btn-secondary" (click)="editCompany(company.id)">Edit</button>
+    <button class="btn btn-danger" (click)="deleteCompany(company.id)">Delete</button>
+    <button class="btn btn-info" (click)="fetchBranches(company.id)">View Branches</button>
+    <button class="btn btn-warning" (click)="fetchDepartments(company.id)">View Departments</button>
+   </div>
+  </div>
+
+  <div *ngIf="selectedCompanyBranches.length > 0">
+   <h3>Branches:</h3>
+   <ul>
+    <li *ngFor="let branch of selectedCompanyBranches">{{ branch.name }}</li>
+   </ul>
+  </div>
+
+  <div *ngIf="selectedCompanyDepartments.length > 0">
+   <h3>Departments:</h3>
+   <ul>
+    <li *ngFor="let department of selectedCompanyDepartments">{{ department.name }}</li>
+   </ul>
+  </div>
+ </div>
+
+ <div *ngIf="filteredCompanies.length === 0">
+  <p>No companies found</p>
+ </div>
+</div>

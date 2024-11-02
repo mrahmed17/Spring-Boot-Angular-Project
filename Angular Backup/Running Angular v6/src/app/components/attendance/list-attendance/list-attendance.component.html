@@ -1,0 +1,19 @@
+<h2><fa-icon [icon]="faListUl"></fa-icon> Attendance List</h2>
+<table>
+ <thead>
+  <tr>
+   <th><fa-icon [icon]="faIdBadge"></fa-icon> ID</th>
+   <th><fa-icon [icon]="faCalendarAlt"></fa-icon> Date</th>
+   <th><fa-icon [icon]="faClock"></fa-icon> Clock In Time</th>
+   <th><fa-icon [icon]="faClock"></fa-icon> Clock Out Time</th>
+  </tr>
+ </thead>
+ <tbody>
+  <tr *ngFor="let attendance of attendances">
+   <td>{{ attendance.id }}</td>
+   <td>{{ attendance.date | date }}</td>
+   <td>{{ attendance.clockInTime | date:'shortTime' }}</td>
+   <td>{{ attendance.clockOutTime | date:'shortTime' }}</td>
+  </tr>
+ </tbody>
+</table>

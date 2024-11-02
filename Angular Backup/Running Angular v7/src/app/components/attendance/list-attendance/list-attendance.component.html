@@ -1,0 +1,36 @@
+<div class="attendance-container">
+ <h1>Attendance List</h1>
+
+ <!-- Search Input -->
+ <div class="search-bar">
+  <input type="text" [(ngModel)]="searchTerm" (input)="filterAttendances()" placeholder="Search by user name..."
+   class="form-control" />
+ </div>
+
+ <!-- Attendance List -->
+ <table class="table table-striped">
+  <thead>
+   <tr>
+    <th>#</th>
+    <th>Name</th>
+    <th>Date</th>
+    <th>Clock In</th>
+    <th>Clock Out</th>
+   </tr>
+  </thead>
+  <tbody>
+   <tr *ngFor="let attendance of filteredAttendances; let i = index">
+    <td>{{ i + 1 }}</td>
+    <td>{{ attendance.user.fullName }}</td>
+    <td>{{ attendance.date | date:'shortDate' }}</td>
+    <td>{{ attendance.clockInTime | date:'shortTime' }}</td>
+    <td>{{ attendance.clockOutTime | date:'shortTime' }}</td>
+   </tr>
+  </tbody>
+ </table>
+
+ <!-- Message if no attendances found -->
+ <div *ngIf="filteredAttendances.length === 0" class="alert alert-warning">
+  No attendance records found.
+ </div>
+</div>

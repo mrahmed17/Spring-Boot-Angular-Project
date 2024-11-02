@@ -1,0 +1,57 @@
+<div class="container">
+ <h2>Branch List</h2>
+ <div class="mb-3">
+  <input type="text" class="form-control" placeholder="Search by branch name" [(ngModel)]="searchTerm"
+   (keyup)="searchBranches()" />
+ </div>
+ <table class="table">
+  <thead>
+   <tr>
+    <th>ID</th>
+    <th>Branch Name</th>
+    <th>Address</th>
+    <th>City</th>
+    <th>Actions</th>
+   </tr>
+  </thead>
+  <tbody>
+   <tr *ngFor="let branch of branches">
+    <td>{{ branch.id }}</td>
+    <td>{{ branch.branchName }}</td>
+    <td>{{ branch.address }}</td>
+    <td>{{ branch.city }}</td>
+    <td>
+     <button class="btn btn-info" (click)="viewBranch(branch.id)">
+      View
+     </button>
+     <button class="btn btn-warning" (click)="editBranch(branch.id)">
+      Edit
+     </button>
+     <button class="btn btn-danger" (click)="deleteBranch(branch.id)">
+      Delete
+     </button>
+     <button class="btn btn-secondary" (click)="getDepartmentsByBranch(branch.id)">
+      Departments
+     </button>
+     <button class="btn btn-secondary" (click)="getEmployeesByBranch(branch.id)">
+      Employees
+     </button>
+    </td>
+   </tr>
+  </tbody>
+ </table>
+
+ <div *ngIf="departments.length > 0">
+  <h3>Departments</h3>
+  <ul>
+<li *ngFor="let department of departments">{{ department.departmentName }}</li>
+  </ul>
+ </div>
+
+ <div *ngIf="employees.length > 0">
+  <h3>Employees</h3>
+  <ul>
+<li *ngFor="let employee of employees">{{ employee.fullName }}</li>
+  </ul>
+ </div>
+</div>

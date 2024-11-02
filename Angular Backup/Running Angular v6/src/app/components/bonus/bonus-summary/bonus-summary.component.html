@@ -1,0 +1,18 @@
+<table class="table table-striped">
+ <thead>
+  <tr>
+   <th>Amount</th>
+   <th>Date</th>
+   <th>Month</th>
+   <th>User</th>
+  </tr>
+ </thead>
+ <tbody>
+  <tr *ngFor="let bonus of bonusData">
+   <td>{{ bonus.bonusAmount | currency }}</td> <!-- Refers to bonusAmount -->
+   <td>{{ bonus.bonusDate | date: 'shortDate' }}</td> <!-- Refers to bonusDate -->
+   <td>{{ bonus.advanceMonth }}</td> <!-- Refers to advanceMonth -->
+   <td>{{ bonus.user.fullName }}</td> <!-- Refers to user.fullName from UserModel -->
+  </tr>
+ </tbody>
+</table>

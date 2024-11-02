@@ -1,0 +1,64 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 mb-3">
+
+      <div class="mb-3">
+        <label for="search" class="form-label">
+          <fa-icon [icon]="faSearch"></fa-icon> Search by User Name:
+        </label>
+        <input id="search" type="text" class="form-control" [formControl]="searchControl"
+          placeholder="Search by user name..." />
+      </div>
+
+      <div class="mb-3">
+        <label for="user" class="form-label">
+          <fa-icon [icon]="faUser"></fa-icon> Select User:
+        </label>
+        <select [(ngModel)]="selectedUserId" (change)="onUserChange($event)" class="form-select" id="user">
+          <option value="">All Users</option>
+          <option *ngFor="let user of users" [value]="user.id">
+            {{ user.fullName }}
+          </option>
+        </select>
+      </div>
+
+      <div class="mb-3">
+        <label for="date" class="form-label">
+          <fa-icon [icon]="faCalendarAlt"></fa-icon> Select Date:
+        </label>
+        <input type="date" [value]="selectedDate | date: 'yyyy-MM-dd'" (change)="onDateChange($event)"
+          class="form-control" id="date" />
+      </div>
+
+      <h2><fa-icon [icon]="faListUl"></fa-icon> Attendance List</h2>
+      <table class="table">
+        <thead>
+          <tr>
+            <th><fa-icon [icon]="faIdBadge"></fa-icon> ID</th>
+            <th><fa-icon [icon]="faUser"></fa-icon> User Name</th>
+            <th><fa-icon [icon]="faCalendarAlt"></fa-icon> Date</th>
+            <th><fa-icon [icon]="faClock"></fa-icon> Clock In Time</th>
+            <th><fa-icon [icon]="faClock"></fa-icon> Clock Out Time</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let attendance of filteredAttendances">
+            <td>{{ attendance.id }}</td>
+            <td>{{ attendance.user.fullName }}</td>
+            <td>{{ attendance.date | date }}</td>
+            <td>{{ attendance.clockInTime | date:'shortTime' }}</td>
+            <td>{{ attendance.clockOutTime | date:'shortTime' }}</td>
+          </tr>
+          <tr *ngIf="filteredAttendances.length === 0">
+            <td colspan="5" class="text-center">No attendance records found.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="d-flex justify-content-between">
+        <button (click)="previousPage()" [disabled]="isPreviousDisabled()">Previous</button>
+        <button (click)="nextPage()" [disabled]="isNextDisabled()">Next</button>
+      </div>
+    </div>
+  </div>
+</div>

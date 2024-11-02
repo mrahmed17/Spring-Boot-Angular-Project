@@ -1,0 +1,22 @@
+<h2>Add New User</h2>
+<form (ngSubmit)="addUser()">
+ <div>
+  <label>Full Name:</label>
+  <input [(ngModel)]="user.fullName" name="fullName" required>
+ </div>
+ <div>
+  <label>Email:</label>
+  <input [(ngModel)]="user.email" name="email" required>
+ </div>
+ <div>
+  <label>Contact:</label>
+  <input [(ngModel)]="user.contact" name="contact" required>
+ </div>
+ <div>
+  <label>Role:</label>
+  <select [(ngModel)]="user.role" name="role" required>
+   <option *ngFor="let role of roles" [value]="role">{{ role }}</option>
+  </select>
+ </div>
+ <button type="submit">Add User</button>
+</form>

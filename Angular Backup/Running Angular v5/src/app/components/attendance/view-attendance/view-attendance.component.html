@@ -1,0 +1,9 @@
+<h2><fa-icon [icon]="faEye"></fa-icon> View Attendance</h2>
+<div *ngIf="attendance">
+ <p><fa-icon [icon]="faIdBadge"></fa-icon> <strong>ID:</strong> {{ attendance.id }}</p>
+ <p><fa-icon [icon]="faCalendarAlt"></fa-icon> <strong>Date:</strong> {{ attendance.date | date }}</p>
+ <p><fa-icon [icon]="faClock"></fa-icon> <strong>Clock In Time:</strong> {{ attendance.clockInTime | date:'shortTime' }}
+ </p>
+ <p><fa-icon [icon]="faClock"></fa-icon> <strong>Clock Out Time:</strong> {{ attendance.clockOutTime | date:'shortTime'
+  }}</p>
+</div>
