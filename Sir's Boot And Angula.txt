@@ -1,0 +1,40 @@
+Spring Boot Part:
+===================
+
+Config:
+https://github.com/imranhss/Sprint-Boot-59/tree/Part_5_Uservalidation/ReviewSprintBoot/src/main/java/com/emranhss/ReviewSprintBoot/configaration
+
+Entity: 
+https://github.com/imranhss/Sprint-Boot-59/tree/Part_5_Uservalidation/ReviewSprintBoot/src/main/java/com/emranhss/ReviewSprintBoot/entity
+
+JWT:
+https://github.com/imranhss/Sprint-Boot-59/tree/Part_5_Uservalidation/ReviewSprintBoot/src/main/java/com/emranhss/ReviewSprintBoot/jwt
+
+Repository:
+https://github.com/imranhss/Sprint-Boot-59/tree/Part_5_Uservalidation/ReviewSprintBoot/src/main/java/com/emranhss/ReviewSprintBoot/repository
+
+RestController:
+https://github.com/imranhss/Sprint-Boot-59/tree/Part_5_Uservalidation/ReviewSprintBoot/src/main/java/com/emranhss/ReviewSprintBoot/restcontroller
+
+Securiry:
+https://github.com/imranhss/Sprint-Boot-59/tree/Part_5_Uservalidation/ReviewSprintBoot/src/main/java/com/emranhss/ReviewSprintBoot/security
+
+Service:
+https://github.com/imranhss/Sprint-Boot-59/tree/Part_5_Uservalidation/ReviewSprintBoot/src/main/java/com/emranhss/ReviewSprintBoot/service
+
+
+Angular Part:
+==============
+
+Guards:
+https://github.com/imranhss/SpringBootWithAngular59/tree/main/hotel_booking_system/src/app/guards
+
+
+LogIn and Registration:
+https://github.com/imranhss/SpringBootWithAngular59/tree/main/hotel_booking_system/src/app/login
+
+Model:
+https://github.com/imranhss/SpringBootWithAngular59/tree/main/hotel_booking_system/src/app/model
+
+Service:
+https://github.com/imranhss/SpringBootWithAngular59/tree/main/hotel_booking_system/src/app/service

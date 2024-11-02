@@ -1,0 +1,12 @@
+Flow of Usage:
+Client request: A request is made to /api/bonuses/calculate with the userId and year.
+Controller: The BonusController calls BonusService.calculateBonus to compute the bonus.
+Service Layer: The BonusService fetches the necessary data (unpaid leaves, base bonus) from repositories and computes the bonus.
+Repository Layer: The LeaveRepository and BonusRepository handle queries to fetch unpaid leave days and the bonus amount.
+Response: The final calculated bonus is returned to the client.
+
+
+Where to Use:
+Admin Panel: To calculate and display employee bonuses for HR or finance personnel.
+Automated Payroll System: To integrate bonus calculation logic with payroll generation systems.
+Bonus Review Page: Display the calculated bonus to employees in a dashboard or summary page.
