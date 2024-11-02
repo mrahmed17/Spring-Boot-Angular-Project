@@ -1,0 +1,133 @@
+<div class="container">  
+  <h2>Add New User</h2>  
+  <form (ngSubmit)="onSubmit()">  
+    <div class="form-group">  
+      <label for="fullName">Full Name:</label>  
+      <input  
+        type="text"  
+        class="form-control"  
+        id="fullName"  
+        [(ngModel)]="user.fullName"  
+        name="fullName"  
+        required  
+      />  
+    </div>  
+
+    <div class="form-group">  
+      <label for="email">Email:</label>  
+      <input  
+        type="email"  
+        class="form-control"  
+        id="email"  
+        [(ngModel)]="user.email"  
+        name="email"  
+        required  
+      />  
+    </div>  
+
+    <div class="form-group">  
+      <label for="password">Password:</label>  
+      <input  
+        type="password"  
+        class="form-control"  
+        id="password"  
+        [(ngModel)]="user.password"  
+        name="password"  
+        required  
+      />  
+    </div>  
+
+    <div class="form-group">  
+      <label for="address">Address:</label>  
+      <input  
+        type="text"  
+        class="form-control"  
+        id="address"  
+        [(ngModel)]="user.address"  
+        name="address"  
+      />  
+    </div>  
+
+    <div class="form-group">  
+      <label for="gender">Gender:</label>  
+      <select  
+        class="form-control"  
+        id="gender"  
+        [(ngModel)]="user.gender"  
+        name="gender"  
+      >  
+        <option value="" disabled>Select Gender</option>  
+        <option value="Male">Male</option>  
+        <option value="Female">Female</option>  
+        <option value="Other">Other</option>  
+      </select>  
+    </div>  
+
+    <div class="form-group">  
+      <label for="dateOfBirth">Date of Birth:</label>  
+      <input  
+        type="date"  
+        class="form-control"  
+        id="dateOfBirth"  
+        [(ngModel)]="user.dateOfBirth"  
+        name="dateOfBirth"  
+      />  
+    </div>  
+
+    <div class="form-group">  
+      <label for="nationalId">National ID:</label>  
+      <input  
+        type="text"  
+        class="form-control"  
+        id="nationalId"  
+        [(ngModel)]="user.nationalId"  
+        name="nationalId"  
+      />  
+    </div>  
+
+    <div class="form-group">  
+      <label for="contact">Contact:</label>  
+      <input  
+        type="text"  
+        class="form-control"  
+        id="contact"  
+        [(ngModel)]="user.contact"  
+        name="contact"  
+      />  
+    </div>  
+
+    <div class="form-group">  
+      <label for="basicSalary">Basic Salary:</label>  
+      <input  
+        type="number"  
+        class="form-control"  
+        id="basicSalary"  
+        [(ngModel)]="user.basicSalary"  
+        name="basicSalary"  
+      />  
+    </div>  
+
+    <div class="form-group">  
+      <label for="joinedDate">Joined Date:</label>  
+      <input  
+        type="date"  
+        class="form-control"  
+        id="joinedDate"  
+        [(ngModel)]="user.joinedDate"  
+        name="joinedDate"  
+      />  
+    </div>  
+
+    <div class="form-group">  
+      <label for="profilePhoto">Profile Photo:</label>  
+      <input  
+        type="file"  
+        class="form-control"  
+        id="profilePhoto"  
+        (change)="onFileSelected($event)"  
+      />  
+    </div>  
+
+    <button type="submit" class="btn btn-primary">Add User</button>  
+  </form>  
+</div>

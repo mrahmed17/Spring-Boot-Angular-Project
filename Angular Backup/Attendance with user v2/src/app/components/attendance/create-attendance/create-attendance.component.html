@@ -1,0 +1,57 @@
+<h2>Create Attendance</h2>
+<div class="row">
+ <div class="col-md-3">
+  <div>
+   <label for="user">Select User:</label>
+   <select [(ngModel)]="selectedUserId" class="form-control" id="user">
+    <option *ngFor="let user of users" [value]="user.id">
+     {{ user.fullName }}
+    </option>
+   </select>
+  </div>
+
+  <div class="mt-3">
+   <button class="btn btn-primary" (click)="checkIn()">Check In</button>
+   <button class="btn btn-secondary" (click)="checkOut()">Check Out</button>
+  </div>
+ </div>
+
+ <div class="col-md-9">
+  <h2>Attendance List</h2>
+  <table class="table table-striped">
+   <thead>
+    <tr>
+     <th>ID</th>
+     <th>User Name</th>
+     <th>Date</th>
+     <th>Clock In Time</th>
+     <th>Clock Out Time</th>
+    </tr>
+   </thead>
+   <tbody>
+    <tr *ngFor="let attendance of attendances">
+     <td>{{ attendance.id }}</td>
+     <td>{{ attendance.user.fullName }}</td>
+     <td>{{ attendance.date | date }}</td>
+     <td>{{ attendance.clockInTime | date: 'shortTime' }}</td>
+     <td>{{ attendance.clockOutTime | date: 'shortTime' }}</td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+</div>
+
+
+
+<!-- <form (ngSubmit)="saveAttendance()">
+ <label for="date">Date</label>
+ <input type="date" [(ngModel)]="attendance.date" name="date" required>
+
+ <label for="clockInTime">Clock In Time</label>
+ <input type="time" [(ngModel)]="attendance.clockInTime" name="clockInTime" required>
+
+ <label for="clockOutTime">Clock Out Time</label>
+ <input type="time" [(ngModel)]="attendance.clockOutTime" name="clockOutTime" required>
+
+ <button type="submit">Save Attendance</button>
+</form> -->

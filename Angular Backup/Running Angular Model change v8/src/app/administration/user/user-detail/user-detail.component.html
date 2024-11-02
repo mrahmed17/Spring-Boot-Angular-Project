@@ -1,0 +1,25 @@
+<div *ngIf="isLoading" class="spinner-border" role="status">
+ <span class="sr-only">Loading...</span>
+</div>
+
+<div *ngIf="user" class="f">
+ <button (click)="goBack()" class="btn btn-secondary mb-3">
+  <fa-icon [icon]="faArrowLeft"></fa-icon> Back
+ </button>
+ <div class="user-detail">
+  <div class="user-photo">
+   <img
+    [src]="user.profilePhoto ? 'http://localhost:8080/images/profilePhotos/' + user.profilePhoto : 'static/images/*.jpg'"
+    alt="{{ user.fullName }}" class="img-fluid" />
+  </div>
+  <h2><fa-icon [icon]="faUser"></fa-icon> {{ user.fullName }}</h2>
+  <p><fa-icon [icon]="faIdBadge"></fa-icon> ID: {{ user.id }}</p>
+  <p><fa-icon [icon]="faEnvelope"></fa-icon> Email: {{ user.email }}</p>
+  <p><fa-icon [icon]="faPhone"></fa-icon> Contact: {{ user.contact }}</p>
+  <p><fa-icon [icon]="faCalendarAlt"></fa-icon> Date of Birth: {{ user.dateOfBirth | date }}</p>
+  <p><fa-icon [icon]="faMoneyCheckDollar"></fa-icon> Basic Salary: {{ user.basicSalary | currency }}</p>
+  <p><fa-icon [icon]="faMapMarkedAlt"></fa-icon> Address: {{ user.address }}</p>
+  <p><fa-icon [icon]="faCalendarAlt"></fa-icon> Joined Date: {{ user.joinedDate | date }}</p>
+  <p><fa-icon [icon]="faUserTag"></fa-icon> Role: {{ user.role }}</p>
+ </div>
+</div>

@@ -1,0 +1,114 @@
+/* User details container */
+.user-detail {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  max-width: 600px;
+  margin: 20px auto;
+  text-align: left; /* Changed to left-align the text */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.user-detail:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* User photo */
+.user-photo {
+  width: 100%; /* Make the photo container full width */
+  text-align: center;
+  margin-bottom: 20px;
+  position: relative; /* Ensure positioning works for overlay or image adjustments */
+}
+
+.user-photo img {
+  width: 100%; /* Make the image take up the full width */
+  height: auto; /* Maintain the aspect ratio */
+  object-fit: cover; /* Cover the area without stretching */
+  border-radius: 10px 10px 0 0; /* Rounded corners only on the top of the card */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+
+.user-photo img:hover {
+  transform: scale(1.05);
+}
+
+/* Headings and paragraphs */
+h2 {
+  font-size: 1.75rem;
+  color: #333;
+  margin-top: 10px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+h2 fa-icon {
+  margin-right: 10px;
+  color: #007bff;
+}
+
+p {
+  font-size: 1.1rem;
+  color: #555;
+  margin: 10px 0;
+  display: flex;
+  align-items: center;
+}
+
+p fa-icon {
+  margin-right: 10px;
+  color: #007bff;
+}
+
+/* Button styling */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn-secondary {
+  background-color: #6c757d;
+  border-color: #6c757d;
+}
+
+.btn-secondary:hover {
+  background-color: #5a6268;
+  transform: translateY(-3px);
+}
+
+/* Spinner */
+.spinner-border {
+  display: block;
+  margin: 0 auto;
+  border: 4px solid rgba(0, 0, 0, 0.1);
+  border-top-color: #007bff;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Animated appearance */
+.user-detail {
+  animation: fadeIn 0.6s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

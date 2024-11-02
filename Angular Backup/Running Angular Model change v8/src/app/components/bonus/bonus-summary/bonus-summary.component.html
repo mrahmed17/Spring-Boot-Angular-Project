@@ -1,0 +1,18 @@
+<table class="table table-striped">
+ <thead>
+  <tr>
+   <th>Bonus ID</th>
+   <th>Amount</th>
+   <th>Date</th>
+   <th>User</th>
+  </tr>
+ </thead>
+ <tbody>
+  <tr *ngFor="let bonus of bonusData">
+   <td>{{ bonus.id}}</td>
+   <td>{{ bonus.bonusAmount | currency }}</td>
+   <td>{{ bonus.bonusDate | date: 'shortDate' }}</td> 
+   <td>{{ bonus.user.fullName }}</td>
+  </tr>
+ </tbody>
+</table>

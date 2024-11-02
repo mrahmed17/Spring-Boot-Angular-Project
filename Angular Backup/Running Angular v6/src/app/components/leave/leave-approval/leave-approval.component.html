@@ -1,0 +1,30 @@
+<div *ngIf="pendingLeaves.length > 0; else noPendingLeaves">
+ <h2>Pending Leave Requests</h2>
+ <table class="table table-bordered table-hover">
+  <thead>
+   <tr>
+    <th>Start Date</th>
+    <th>End Date</th>
+    <th>Leave Type</th>
+    <th>Reason</th>
+    <th>Actions</th>
+   </tr>
+  </thead>
+  <tbody>
+   <tr *ngFor="let leave of pendingLeaves">
+    <td>{{ leave.startDate | date }}</td>
+    <td>{{ leave.endDate | date }}</td>
+    <td>{{ leave.leaveType }}</td>
+    <td>{{ leave.reason }}</td>
+    <td>
+     <button (click)="approveLeave(leave.id!)" class="btn btn-success">Approve</button>
+     <button (click)="rejectLeave(leave.id!)" class="btn btn-danger">Reject</button>
+    </td>
+   </tr>
+  </tbody>
+ </table>
+</div>
+
+<ng-template #noPendingLeaves>
+ <p>No pending leave requests.</p>
+</ng-template>

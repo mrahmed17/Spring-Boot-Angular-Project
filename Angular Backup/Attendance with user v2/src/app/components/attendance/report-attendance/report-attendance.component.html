@@ -1,0 +1,70 @@
+<h2>Attendance Report (Date Range)</h2>
+<form (ngSubmit)="getUsersWithAttendanceInRange()">
+ <label for="startDate">Start Date</label>
+ <input type="date" [(ngModel)]="startDate" name="startDate" required>
+
+ <label for="endDate">End Date</label>
+ <input type="date" [(ngModel)]="endDate" name="endDate" required>
+
+ <button type="submit">Get Report</button>
+</form>
+
+<h3>Results</h3>
+<table *ngIf="userAttendance && userAttendance.size > 0">
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Attendance Count</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let key of userAttendance | keyvalue">
+      <td>{{ key.key.fullName }}</td>
+      <td>{{ key.value }}</td>
+    </tr>
+  </tbody>
+</table>
+
+
+<div *ngIf="errorMessage">
+ <p>{{ errorMessage }}</p>
+</div>
+
+<!-- 
+<h2>Attendance Report</h2>
+<div>
+ <button (click)="getAttendanceById(1)">Get Attendance By ID</button>
+ <button (click)="getAttendancesByUserId(1)">Get Attendances By User ID</button>
+ <button (click)="getUsersWithAttendanceInRange('2024-01-01', '2024-12-31')">Get Users With Attendance In Range</button>
+</div>
+
+<div *ngIf="attendance">
+ <h3>Attendance Details:</h3>
+ <p>ID: {{ attendance.id }}</p>
+ <p>User Name: {{ attendance.user.fullName }}</p>
+ <p>Date: {{ attendance.date | date }}</p>
+ <p>Clock In Time: {{ attendance.clockInTime | date: 'shortTime' }}</p>
+ <p>Clock Out Time: {{ attendance.clockOutTime | date: 'shortTime' }}</p>
+</div>
+
+<div *ngIf="attendances.length > 0">
+ <h3>Attendances By User:</h3>
+ <ul>
+  <li *ngFor="let attendance of attendances">
+   ID: {{ attendance.id }} - User: {{ attendance.user.fullName }} - Date: {{ attendance.date | date }}
+  </li>
+ </ul>
+</div>
+
+<div *ngIf="userAttendances">
+ <h3>Users With Attendance In Range:</h3>
+ <ul>
+  <li *ngFor="let user of userAttendances.keys()">
+   User: {{ user.fullName }} - Attendances: {{ userAttendances.get(user) }}
+  </li>
+ </ul>
+</div>
+
+<div *ngIf="errorMessage">
+ <p>{{ errorMessage }}</p>
+</div> -->

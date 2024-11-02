@@ -1,0 +1,78 @@
+<div class="container">
+ <h2>Create Salary</h2>
+ <form [formGroup]="salaryForm" (ngSubmit)="onSubmit()">
+  <div class="form-group">
+   <label for="paymentDate">Payment Date</label>
+   <input type="datetime-local" id="paymentDate" formControlName="paymentDate" class="form-control" />
+  </div>
+
+  <div class="form-group">
+   <label for="medicare">Medicare</label>
+   <input type="number" id="medicare" formControlName="medicare" class="form-control" />
+  </div>
+
+  <div class="form-group">
+   <label for="providentFund">Provident Fund</label>
+   <input type="number" id="providentFund" formControlName="providentFund" class="form-control" />
+  </div>
+
+  <div class="form-group">
+   <label for="insurance">Insurance</label>
+   <input type="number" id="insurance" formControlName="insurance" class="form-control" />
+  </div>
+
+  <div class="form-group">
+   <label for="transportAllowance">Transport Allowance</label>
+   <input type="number" id="transportAllowance" formControlName="transportAllowance" class="form-control" />
+  </div>
+
+  <div class="form-group">
+   <label for="telephoneSubsidy">Telephone Subsidy</label>
+   <input type="number" id="telephoneSubsidy" formControlName="telephoneSubsidy" class="form-control" />
+  </div>
+
+  <div class="form-group">
+   <label for="utilityAllowance">Utility Allowance</label>
+   <input type="number" id="utilityAllowance" formControlName="utilityAllowance" class="form-control" />
+  </div>
+
+  <div class="form-group">
+   <label for="domesticAllowance">Domestic Allowance</label>
+   <input type="number" id="domesticAllowance" formControlName="domesticAllowance" class="form-control" />
+  </div>
+
+  <div class="form-group">
+   <label for="lunchAllowance">Lunch Allowance</label>
+   <input type="number" id="lunchAllowance" formControlName="lunchAllowance" class="form-control" />
+  </div>
+
+  <div class="form-group">
+   <label for="tax">Tax</label>
+   <input type="number" id="tax" formControlName="tax" class="form-control" />
+  </div>
+
+  <div class="form-group">
+   <label for="netSalary">Net Salary</label>
+   <input type="number" id="netSalary" formControlName="netSalary" class="form-control" />
+  </div>
+
+  <div class="form-group">
+   <label for="year">Year</label>
+   <input type="number" id="year" formControlName="year" class="form-control" />
+  </div>
+
+  <div class="form-group">
+   <label for="payrollMonth">Payroll Month</label>
+   <select id="payrollMonth" formControlName="payrollMonth" class="form-control">
+    <option *ngFor="let month of monthKeys" [value]="getMonthValue(month)">{{ month }}</option>
+   </select>
+  </div>
+
+  <div class="form-group">
+   <label for="user">User</label>
+   <input type="number" id="user" formControlName="user" class="form-control" placeholder="User ID" />
+  </div>
+
+  <button type="submit" class="btn btn-primary">Create Salary</button>
+ </form>
+</div>

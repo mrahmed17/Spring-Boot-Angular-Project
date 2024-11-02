@@ -1,0 +1,13 @@
+<h2>Create Attendance</h2>
+<form (ngSubmit)="saveAttendance()">
+ <label for="date">Date</label>
+ <input type="date" [(ngModel)]="attendance.date" name="date" required>
+
+ <label for="clockInTime">Clock In Time</label>
+ <input type="time" [(ngModel)]="attendance.clockInTime" name="clockInTime" required>
+
+ <label for="clockOutTime">Clock Out Time</label>
+ <input type="time" [(ngModel)]="attendance.clockOutTime" name="clockOutTime" required>
+
+ <button type="submit">Save Attendance</button>
+</form>

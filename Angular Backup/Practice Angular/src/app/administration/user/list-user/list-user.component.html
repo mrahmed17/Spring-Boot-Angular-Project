@@ -1,0 +1,99 @@
+<!-- Add New User Button -->
+<a routerLink="/user/create" class="btn btn-primary mb-3">
+  <fa-icon [icon]="faUserPlus"></fa-icon> Add New User
+</a>
+
+<!-- User Filter Section -->
+<div class="filter-section mb-4">
+  <h4>Filters</h4>
+
+  <!-- Role Filter -->
+  <form (ngSubmit)="applyFilters()" #roleFilterForm="ngForm" class="form-inline mb-3">
+    <div class="form-group">
+      <label for="role">Role:</label>
+      <select [(ngModel)]="filters.role" name="role" id="role" class="form-control ml-2">
+        <option value="">All Roles</option>
+        <option *ngFor="let role of roles" [value]="role">{{ role }}</option>
+      </select>
+    </div>
+    <button type="submit" class="btn btn-secondary ml-2">
+      <fa-icon [icon]="faCog"></fa-icon> Apply Role Filter
+    </button>
+  </form>
+
+  <!-- Email Filter -->
+  <form (ngSubmit)="applyFilters()" #emailFilterForm="ngForm" class="form-inline mb-3">
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input [(ngModel)]="filters.email" name="email" id="email" type="text" class="form-control ml-2"
+        placeholder="Enter email" />
+    </div>
+    <button type="submit" class="btn btn-secondary ml-2">
+      <fa-icon [icon]="faCog"></fa-icon> Apply Email Filter
+    </button>
+  </form>
+
+  <!-- Salary Filter -->
+  <form (ngSubmit)="applyFilters()" #salaryFilterForm="ngForm" class="form-inline mb-3">
+    <div class="form-group">
+      <label for="salary">Salary:</label>
+      <input [(ngModel)]="filters.salary" name="salary" id="salary" type="number" class="form-control ml-2"
+        placeholder="Enter salary" />
+    </div>
+    <button type="submit" class="btn btn-secondary ml-2">
+      <fa-icon [icon]="faCog"></fa-icon> Apply Salary Filter
+    </button>
+  </form>
+</div>
+
+<!-- User List Section -->
+<div class="container">
+  <h2><fa-icon [icon]="faUsers"></fa-icon> User List</h2>
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th><fa-icon [icon]="faUser"></fa-icon> Full Name</th>
+        <th><fa-icon [icon]="faEnvelope"></fa-icon> Email</th>
+        <th><fa-icon [icon]="faPhone"></fa-icon> Contact</th>
+        <th><fa-icon [icon]="faUserTag"></fa-icon> Role</th>
+        <th><fa-icon [icon]="faMoneyCheckDollar"></fa-icon> Basic Salary</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody *ngIf="!isLoading">
+    <tr *ngFor="let user of users">
+      <td>{{ user.fullName }}</td>
+      <td>{{ user.email }}</td>
+      <td>{{ user.contact }}</td>
+      <td>{{ user.role }}</td>
+      <td>{{ user.basicSalary | currency }}</td>
+      <td>
+        <button *ngIf="user.id !== undefined" class="btn btn-info btn-sm" (click)="viewUser(user.id!)" title="View User">
+          <fa-icon [icon]="faEye"></fa-icon>
+        </button>
+        <button *ngIf="user.id !== undefined" class="btn btn-warning btn-sm ml-2" (click)="editUser(user.id!)"
+          title="Edit User">
+          <fa-icon [icon]="faEdit"></fa-icon>
+        </button>
+        <button *ngIf="user.id !== undefined" class="btn btn-danger btn-sm ml-2" (click)="deleteUser(user.id!)"
+          title="Delete User">
+          <fa-icon [icon]="faTrash"></fa-icon>
+        </button>
+      </td>
+    </tr>
+
+    </tbody>
+    <tbody *ngIf="isLoading">
+      <tr>
+        <td colspan="6" class="text-center">
+          <fa-icon [icon]="faCog" spin></fa-icon> Loading...
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div *ngIf="users.length === 0 && !isLoading" class="alert alert-warning">
+    No users found.
+  </div>
+</div>

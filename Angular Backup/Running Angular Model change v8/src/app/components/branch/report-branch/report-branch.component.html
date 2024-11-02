@@ -1,0 +1,44 @@
+<div class="container">
+ <h2>Branch Report</h2>
+
+ <div class="summary">
+  <h4>Summary</h4>
+  <ul>
+   <li>Total Branches: {{ totalBranches }}</li>
+   <li>Total Departments: {{ totalDepartments }}</li>
+   <li>Total Employees: {{ totalEmployees }}</li>
+  </ul>
+ </div>
+
+ <div class="branch-list">
+  <h4>Branches</h4>
+  <table class="table table-striped">
+   <thead>
+    <tr>
+     <th>Branch Name</th>
+     <th>Address</th>
+     <th>City</th>
+     <th>Employees</th>
+     <th>Departments</th>
+    </tr>
+   </thead>
+   <tbody>
+    <tr *ngFor="let branch of branches">
+     <td>{{ branch.branchName }}</td>
+     <td>{{ branch.address }}</td>
+     <td>{{ branch.city }}</td>
+     <td>
+      <ng-container *ngIf="branch.id as branchId">
+       {{ (getEmployeeCount(branchId) | async) || 0 }}
+      </ng-container>
+     </td>
+     <td>
+      <ng-container *ngIf="branch.id as branchId">
+       {{ (getDepartmentCount(branchId) | async) || 0 }}
+      </ng-container>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+</div>

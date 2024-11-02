@@ -1,0 +1,21 @@
+<div class="container">
+ <!-- <form class="loginForm" [formGroup]="loginForm" (ngSubmit)="onSubmit()"> -->
+  <h2>Login</h2>
+  <div class="mb-3">
+   <label for="email" class="form-label">Email</label>
+   <input type="email" id="email" formControlName="email" class="form-control">
+  </div>
+
+  <div class="mb-3">
+   <label for="password" class="form-label">Password</label>
+   <input type="password" id="password" formControlName="password" class="form-control">
+  </div>
+
+ 
+  <div class="form-group text-end mb-3">
+   <!-- <a [routerLink]="['/forgetpassword']" class="text-decoration-none">Forgot Password?</a> -->
+  </div>
+
+  <button type="submit" class="btn btn-primary">Login</button>
+
+</div>

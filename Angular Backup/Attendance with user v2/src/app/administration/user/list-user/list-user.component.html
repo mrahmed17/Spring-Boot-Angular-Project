@@ -1,0 +1,28 @@
+<h2>User List</h2>
+<table>
+ <thead>
+  <tr>
+   <th>ID</th>
+   <th>Name</th>
+   <th>Email</th>
+   <th>Contact</th>
+   <th>Role</th>
+   <th>Actions</th>
+  </tr>
+ </thead>
+ <tbody>
+  <tr *ngFor="let user of users">
+   <td>{{ user.id }}</td>
+   <td>{{ user.fullName }}</td>
+   <td>{{ user.email }}</td>
+   <td>{{ user.contact }}</td>
+   <td>{{ user.role }}</td>
+   <td>
+    <button class="delete" (click)="deleteUser(user.id)">Delete</button>
+    <button class="edit" [routerLink]="['/user/edit', user.id]">Edit</button>
+   </td>
+  </tr>
+ </tbody>
+</table>
+
+<a routerLink="/user/create">Add New User</a>

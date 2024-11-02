@@ -1,0 +1,34 @@
+<div class="container">
+  <!-- <form class="loginForm" [formGroup]="loginForm" (ngSubmit)="onSubmit()"> -->
+  <h2><fa-icon [icon]="faSignInAlt"></fa-icon> Login</h2>
+
+  <div class="mb-3">
+    <label for="email" class="form-label">
+      <fa-icon [icon]="faEnvelope"></fa-icon> Email
+    </label>
+    <div class="input-group">
+      <span class="input-group-text"><fa-icon [icon]="faEnvelope"></fa-icon></span>
+      <input type="email" id="email" formControlName="email" class="form-control" placeholder="Enter your email">
+    </div>
+  </div>
+
+  <div class="mb-3">
+    <label for="password" class="form-label">
+      <fa-icon [icon]="faLock"></fa-icon> Password
+    </label>
+    <div class="input-group">
+      <span class="input-group-text"><fa-icon [icon]="faLock"></fa-icon></span>
+      <input type="password" id="password" formControlName="password" class="form-control"
+        placeholder="Enter your password">
+    </div>
+  </div>
+
+  <div class="form-group text-end mb-3">
+    <!-- <a [routerLink]="['/forgetpassword']" class="text-decoration-none">Forgot Password?</a> -->
+  </div>
+
+  <button type="submit" class="btn btn-primary">
+    <fa-icon [icon]="faSignInAlt"></fa-icon> Login
+  </button>
+  <!-- </form> -->
+</div>

@@ -1,0 +1,65 @@
+<div class="row">
+ <div class="col-md-4">
+  <h2><fa-icon [icon]="faUser"></fa-icon> Give Attendance</h2>
+  <div>
+   <label for="user"><fa-icon [icon]="faUser"></fa-icon> Select User:</label>
+   <select [(ngModel)]="selectedUserId" class="form-control" id="user">
+    <option *ngFor="let user of users" [value]="user.id">
+     {{ user.fullName }}
+    </option>
+   </select>
+  </div>
+
+  <div class="mt-3">
+   <button class="btn btn-success me-5" (click)="checkIn()">
+    <fa-icon [icon]="faSignIn"></fa-icon> Check In
+   </button>
+   <button class="btn btn-danger " (click)="checkOut()">
+    <fa-icon [icon]="faSignOut"></fa-icon> Check Out
+   </button>
+  </div>
+ </div>
+
+ <div class="col-md-8">
+  <h2><fa-icon [icon]="faList"></fa-icon> Attendance List</h2>
+  <table class="table table-striped">
+   <thead>
+    <tr>
+     <th><fa-icon [icon]="faIdBadge"></fa-icon> ID</th>
+     <th><fa-icon [icon]="faUser"></fa-icon> User Name</th>
+     <th><fa-icon [icon]="faCalendarAlt"></fa-icon> Date</th>
+     <th><fa-icon [icon]="faClock"></fa-icon> Clock In Time</th>
+     <th><fa-icon [icon]="faClock"></fa-icon> Clock Out Time</th>
+    </tr>
+   </thead>
+   <tbody>
+    <tr *ngFor="let attendance of attendances">
+     <td>{{ attendance.id }}</td>
+     <td>{{ attendance.user.fullName }}</td>
+     <td>{{ attendance.date | date }}</td>
+     <td>{{ attendance.clockInTime | date: 'shortTime' }}</td>
+     <td>{{ attendance.clockOutTime | date: 'shortTime' }}</td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+</div>
+
+<ng-template #noAttendance>
+ <p>No attendance records found for today.</p>
+</ng-template>
+
+
+
+<!-- <form (ngSubmit)="saveAttendance()">
+ <label for="date">Date</label>
+ <input type="date" [(ngModel)]="attendance.date" name="date" required>
+
+ <label for="clockInTime">Clock In Time</label>
+ <input type="time" [(ngModel)]="attendance.clockInTime" name="clockInTime" required>
+
+ <label for="clockOutTime">Clock Out Time</label>
+ <input type="time" [(ngModel)]="attendance.clockOutTime" name="clockOutTime" required>
+
+ <button type="submit">Save Attendance</button>
+</form> -->

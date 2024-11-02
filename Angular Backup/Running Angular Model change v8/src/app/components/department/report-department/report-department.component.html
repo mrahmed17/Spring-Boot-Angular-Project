@@ -1,0 +1,43 @@
+<div class="container mt-4">
+  <h2>Department Report</h2>
+
+  <div *ngIf="isLoading" class="spinner-border" role="status">
+    <span class="sr-only">Loading...</span>
+  </div>
+
+  <div class="form-group">
+    <label for="branchSelect">Select Branch:</label>
+    <select id="branchSelect" class="form-control" (change)="onBranchChange($event)">
+      <option value="">-- Select a Branch --</option>
+      <option *ngFor="let branch of branches" [value]="branch.id">
+        {{ branch.branchName }}
+      </option>
+    </select>
+  </div>
+
+  <div *ngIf="departments.length > 0">
+    <h3>Departments</h3>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Department Name</th>
+          <th>Number of Employees</th>
+          <th>Branch</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let department of departments">
+          <td>{{ department.id }}</td>
+          <td>{{ department.departmentName }}</td>
+          <td>{{ department.numOfEmployees }}</td>
+          <td>{{ department.branch.branchName || 'N/A' }}</td> <!-- Removed optional chaining -->
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div *ngIf="departments.length === 0 && !isLoading">
+    <p>No departments found for the selected branch.</p>
+  </div>
+</div>

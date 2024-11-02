@@ -1,0 +1,17 @@
+<div class="container mt-4">
+ <h2>Branch Details</h2>
+ <div class="card">
+  <div class="card-body">
+   <h5 class="card-title">{{ branch.branchName }}</h5>
+   <p class="card-text"><strong>Address:</strong> {{ branch.address }}</p>
+   <p class="card-text"><strong>City:</strong> {{ branch.city }}</p>
+   <p class="card-text"><strong>Zip Code:</strong> {{ branch.zipCode }}</p>
+   <p class="card-text"><strong>Country:</strong> {{ branch.country }}</p>
+   <p class="card-text"><strong>Created At:</strong> {{ branch.createdAt | date }}</p>
+   <p class="card-text"><strong>Updated At:</strong> {{ branch.updateAt | date }}</p>
+<img *ngIf="branch.photo" [src]="branch.photo ? 'http://localhost:8080/uploads/' + branch.photo : 'static/images/default.jpg'" class="img-fluid" alt="Branch Photo" />
+
+   <button class="btn btn-primary mt-3" (click)="goBack()">Back to List</button>
+  </div>
+ </div>
+</div>

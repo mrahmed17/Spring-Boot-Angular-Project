@@ -1,0 +1,104 @@
+/* .navbar {
+  font-family: cursive, Cochin, Georgia, Times, "Times New Roman", serif,
+    Helvetica, sans-serif;
+} */
+
+.navbar-brand {
+  color: rgb(7, 200, 255);
+  font-size: 1.5em;
+  font-weight: bold;
+  margin: 0em 1em 0em 0.5em;
+  /* font-family: cursive, Cochin, Georgia, Times, "Times New Roman", serif,
+    Helvetica, sans-serif; */
+}
+
+.top {
+  color: rgb(7, 200, 255);
+  text-justify: auto;
+  font-size: 2em;
+  margin: 0em 0em 0em 14em;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+/* Evidence Css */
+.navbar .getstarted {
+  background: #106eea;
+  margin-left: 30px;
+  border-radius: 4px;
+  font-weight: 400;
+  color: #fff;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  line-height: 2.3;
+}
+
+.navbar-nav a {
+  font-size: 0.85em;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.navbar-light .navbar-brand {
+  color: #106eea;
+  /* color: #000; */
+  font-size: 25px;
+  text-transform: capitalize;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+.navbar-light .navbar-brand:focus,
+.navbar-light .navbar-brand:hover {
+  color: crimson;
+  /* color: #000; */
+}
+
+.navbar-light .navbar-nav .nav-link {
+  color: #000;
+}
+
+.navbar-light .navbar-nav .nav-link:focus,
+.navbar-light .navbar-nav .nav-link:hover {
+  color: crimson;
+  /* color: #000; */
+}
+
+.w-100 {
+  height: 60vh;
+}
+
+.navbar-toggler {
+  padding: 10px 10px;
+  font-size: 18px;
+  line-height: 0.3;
+  background: rgb(7, 200, 255);;
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .card {
+    margin-bottom: 30px;
+  }
+
+  .img-area img {
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .navbar-nav {
+    text-align: center;
+  }
+
+  h6 {
+    font-size: 15px;
+  }
+
+  .about-text {
+    padding-top: 50px;
+  }
+
+  .card {
+    margin-bottom: 30px;
+  }
+}

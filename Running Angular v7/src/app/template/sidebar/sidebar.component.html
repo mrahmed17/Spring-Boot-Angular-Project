@@ -1,0 +1,183 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HR & PM System Admin</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head> -->
+
+<body>
+  <!-- Sidebar -->
+  <nav id="sidebarMenu" class="d-md-block  bg-dark sidebar collapse">
+    <div class="position-sticky pt-3">
+      <ul class="nav flex-column">
+        <!-- Dashboard -->
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" routerLink="/dashboard">
+            <span data-feather="dashboard" class="icon">Dashboard</span>
+          </a>
+        </li>
+
+        <!-- Attendances Dropdown -->
+        <li class="nav-item">
+          <a class="nav-link dropdown-toggle" href="#" id="attendancesDropdown" role="button" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            <span data-feather="check-circle" class="icon">Attendance</span>
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="attendancesDropdown">
+            <li>
+              <a class="nav-link" routerLink="/attendance/create">
+                <fa-icon [icon]="faClock"></fa-icon>
+                Give Attendance
+              </a>
+            </li>
+            <li>
+              <a class="nav-link" routerLink="/attendance/list">
+                <fa-icon [icon]="faList"></fa-icon>
+                Attendance List
+              </a>
+            </li>
+            <li>
+              <a class="nav-link" routerLink="/attendance/report">
+                <fa-icon [icon]="faFileAlt"></fa-icon>
+                Attendance Report
+              </a>
+            </li>
+          </ul>
+        </li>
+
+        <!-- User Dropdown -->
+        <li class="nav-item">
+          <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            <span data-feather="user" class="icon">User</span>
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="userDropdown">
+            <li>
+              <a class="nav-link" routerLink="/user/create">
+                <fa-icon [icon]="faUserPlus"></fa-icon>
+                Create User
+              </a>
+            </li>
+            <li>
+              <a class="nav-link" routerLink="/user/list">
+                <fa-icon [icon]="faList"></fa-icon>
+                User List
+              </a>
+            </li>
+          </ul>
+        </li>
+
+        <!-- Bonus Dropdown -->
+        <li class="nav-item">
+          <a class="nav-link dropdown-toggle" href="#" id="bonusDropdown" role="button" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            <i class="fas fa-dollar-sign"></i> Bonuses
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="bonusDropdown">
+            <li><a class="dropdown-item" routerLink="/bonus/create">Create Bonus</a></li>
+            <!-- <li><a class="dropdown-item" routerLink="/bonus/analytics">Bonus Analytics</a></li>
+            <li><a class="dropdown-item" routerLink="/bonus/history">Bonus History</a></li>
+            <li><a class="dropdown-item" routerLink="/bonus/management">Bonus Management</a></li>
+            <li><a class="dropdown-item" routerLink="/bonus/report">Bonus Report</a></li> -->
+            <li><a class="dropdown-item" routerLink="/bonus/summary">Bonus Summary</a></li>
+          </ul>
+        </li>
+
+        <!-- Advance Salary Dropdown -->
+        <li class="nav-item">
+          <a class="nav-link dropdown-toggle" href="#" id="advanceSalaryDropdown" role="button"
+            data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="fas fa-dollar-sign"></i> Advance Salary
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="advanceSalaryDropdown">
+            <li><a class="dropdown-item" routerLink="/advance-salary/create">Create Advance Salary</a></li>
+            <li><a class="dropdown-item" routerLink="/advance-salary/list">List Advance Salaries</a></li>
+            <li><a class="dropdown-item" routerLink="/advance-salary/edit/:id">Edit Advance Salary</a></li>
+            <li><a class="dropdown-item" routerLink="/advance-salary/view/:id">View Advance Salary</a></li>
+            <li><a class="dropdown-item" routerLink="/advance-salary/filter">Filter Advance Salaries</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link dropdown-toggle" href="#" id="salaryDropdown" role="button" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            <i class="fas fa-dollar-sign"></i>Salary
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="salaryDropdown">
+            <li><a class="dropdown-item" routerLink="/salary/create">Create Salary</a></li>
+            <li><a class="dropdown-item" routerLink="/salary/details">Total Salary</a></li>
+          </ul>
+        </li>
+
+        <!-- Leaves Dropdown -->
+        <li class="nav-item">
+          <a class="nav-link dropdown-toggle" href="#" id="leavesDropdown" role="button" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            <span data-feather="calendar" class="icon">Leaves</span>
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="leavesDropdown">
+            <li>
+              <a class="nav-link" routerLink="/leave/apply">
+                <fa-icon [icon]="faCalendarPlus"></fa-icon>
+                Apply Leave
+              </a>
+            </li>
+
+            <li>
+              <a class="nav-link" routerLink="/leave/approval">
+                <fa-icon [icon]="faCheckCircle"></fa-icon>
+                Leave Approval
+              </a>
+            </li>
+            <li>
+              <a class="nav-link" routerLink="/leave/list">
+                <fa-icon [icon]="faList"></fa-icon>
+                Leaves List
+              </a>
+            </li>
+
+            <li>
+              <a class="nav-link" routerLink="/leave/summary">
+                <fa-icon [icon]="faChartPie"></fa-icon>
+                Leave Summary
+              </a>
+            </li>
+
+            <li>
+              <a class="nav-link" routerLink="/leave/history">
+                <fa-icon [icon]="faHistory"></fa-icon>
+                Leave History
+              </a>
+            </li>
+            <li>
+              <a class="nav-link" routerLink="/leave/details">
+                <fa-icon [icon]="faInfoCircle"></fa-icon>
+                Leave Details
+              </a>
+            </li>
+          </ul>
+        </li>
+
+
+        <!-- Logout -->
+        <!-- <li class="nav-item">
+          <a class="nav-link" routerLink="/logout">
+            <span data-feather="log-out" class="icon">Logout</span>
+          </a>
+        </li> -->
+      </ul>
+    </div>
+  </nav>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://unpkg.com/feather-icons"></script>
+  <script>
+    feather.replace()
+  </script>
+</body>
+
+<!-- </html> -->

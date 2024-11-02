@@ -1,0 +1,96 @@
+<div class="container">
+  <h2>User List</h2>
+
+  <!-- Error Message -->
+  <div *ngIf="errorMessage" class="alert alert-danger">
+    {{ errorMessage }}
+  </div>
+
+  <!-- Search and Filter Controls -->
+  <div class="mb-3">
+    <form class="d-flex flex-column flex-sm-row">
+      <!-- Search Input -->
+      <div class="me-2 flex-grow-1">
+        <input type="text" class="form-control" placeholder="Search by name or email" [(ngModel)]="searchQuery"
+          [ngModelOptions]="{ standalone: true }" (ngModelChange)="searchUsers()" />
+      </div>
+
+      <!-- Role Filter -->
+      <div class="me-2">
+        <select class="form-select" [(ngModel)]="selectedRole" [ngModelOptions]="{ standalone: true }"
+          (ngModelChange)="filterByRole()">
+          <option value="">Select Role</option>
+          <option *ngFor="let role of roleOptions" [ngValue]="role">{{ role }}</option>
+        </select>
+      </div>
+
+      <!-- Salary Filter -->
+      <div class="me-2">
+        <input type="number" class="form-control" placeholder="Min Salary" [(ngModel)]="minSalary"
+          [ngModelOptions]="{ standalone: true }" (ngModelChange)="filterBySalary()" />
+      </div>
+      <div class="me-2">
+        <input type="number" class="form-control" placeholder="Max Salary" [(ngModel)]="maxSalary"
+          [ngModelOptions]="{ standalone: true }" (ngModelChange)="filterBySalary()" />
+      </div>
+
+      <!-- Gender Filter -->
+      <div class="me-2">
+        <select class="form-select" [(ngModel)]="genderFilter" [ngModelOptions]="{ standalone: true }"
+          (ngModelChange)="filterByGender()">
+          <option value="">Select Gender</option>
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
+          <option value="Other">Other</option>
+        </select>
+      </div>
+
+      <!-- Reset Filters Button -->
+      <div class="me-2">
+        <button type="button" class="btn btn-secondary" (click)="resetFilters()">Reset Filters</button>
+      </div>
+    </form>
+  </div>
+
+  <!-- User List Table -->
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>ID NO</th>
+        <th>Image</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Basic Salary</th>
+        <th>Gender</th>
+        <th>Role</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of filteredUsers">
+        <td>{{ user.id }}</td>
+        <td class="user-photo">
+          <img
+            [src]="user.profilePhoto ? 'http://localhost:8080/images/profilePhotos/' + user.profilePhoto : 'static/images/*.jpg'"
+            alt="Profile Photo" class="img-thumbnail" />
+        </td>
+        <td>{{ user.fullName }}</td>
+        <td>{{ user.email }}</td>
+        <td>{{ user.basicSalary | currency }}</td>
+        <td>{{ user.gender }}</td>
+        <td>{{ user.role }}</td>
+        <td>
+          <button *ngIf="user.id !== undefined" class="btn btn-info" (click)="viewUser(user.id)" title="View">
+            <fa-icon [icon]="faEye"></fa-icon>
+          </button>
+          <button *ngIf="user.id !== undefined" class="btn btn-warning" (click)="editUser(user.id)" title="Edit">
+            <fa-icon [icon]="faEdit"></fa-icon>
+          </button>
+          <button *ngIf="user.id !== undefined" class="btn btn-danger" (click)="deleteUser(user.id)" title="Delete">
+            <fa-icon [icon]="faTrash"></fa-icon>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

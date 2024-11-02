@@ -1,0 +1,29 @@
+<div class="container">
+ <h2>Department List</h2>
+ <div class="mb-3">
+  <input type="text" class="form-control" placeholder="Search by department name" [(ngModel)]="searchTerm"
+   (ngModelChange)="searchDepartments()" />
+ </div>
+ <table class="table table-bordered">
+  <thead>
+   <tr>
+    <th>ID</th>
+    <th>Department Name</th>
+    <th>Number of Employees</th>
+    <th>Actions</th>
+   </tr>
+  </thead>
+  <tbody>
+   <tr *ngFor="let department of departments">
+    <td>{{ department.id }}</td>
+    <td>{{ department.departmentName }}</td>
+    <td>{{ department.numOfEmployees }}</td>
+    <td>
+     <button class="btn btn-info" (click)="viewDepartment(department.id)">View</button>
+     <button class="btn btn-warning" (click)="editDepartment(department.id)">Edit</button>
+     <button class="btn btn-danger" (click)="deleteDepartment(department.id)">Delete</button>
+    </td>
+   </tr>
+  </tbody>
+ </table>
+</div>

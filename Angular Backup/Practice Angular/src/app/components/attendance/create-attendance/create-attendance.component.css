@@ -1,0 +1,89 @@
+/* Table container */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 30px auto;
+  max-width: 1000px;
+  background-color: #fdfdfd;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+}
+
+/* Table heading */
+thead {
+  background: linear-gradient(135deg, #007BFF, #0056b3);
+  color: white;
+}
+
+th {
+  padding: 16px;
+  text-align: left;
+  font-weight: bold;
+  font-size: 16px;
+  border-bottom: 2px solid #0056b3;
+}
+
+/* Table rows */
+tbody tr {
+  border-bottom: 1px solid #ddd;
+  transition: background-color 0.3s ease;
+}
+
+td {
+  padding: 16px;
+  text-align: left;
+  color: #444;
+  font-size: 15px;
+}
+
+/* Table row hover effect */
+tbody tr:hover {
+  background-color: #e0ffe0;
+  transform: translateY(-2px);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Alternating row colors */
+tbody tr:nth-child(even) {
+  background-color: #f7f7f7;
+}
+
+tbody tr:nth-child(odd) {
+  background-color: #ffffff;
+}
+
+/* Responsive design */
+@media (max-width: 600px) {
+  table {
+    width: 90%;
+  }
+
+  th, td {
+    font-size: 14px;
+    padding: 10px;
+  }
+}
+
+/* Enhanced spacing around h2 */
+h2 {
+  text-align: center;
+  margin-bottom: 25px;
+  color: #333;
+  font-size: 26px;
+  letter-spacing: 1px;
+  position: relative;
+}
+
+h2::after {
+  content: '';
+  position: absolute;
+  width: 50px;
+  height: 3px;
+  background-color: #007BFF;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -10px;
+  border-radius: 3px;
+}

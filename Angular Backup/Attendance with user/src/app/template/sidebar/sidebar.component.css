@@ -1,0 +1,60 @@
+/* Custom styles for the admin dashboard */
+
+body {
+  font-family: Arial, sans-serif;
+}
+
+#wrapper {
+  display: flex;
+  align-items: stretch;
+}
+
+#sidebar-wrapper {
+  min-width: 250px;
+  max-width: 250px;
+  background-color: #343a40;
+}
+
+#sidebar-wrapper .sidebar-heading {
+  padding: 1rem;
+  font-size: 1.25rem;
+  color: white;
+  background-color: #343a40;
+}
+
+#sidebar-wrapper .list-group {
+  width: 100%;
+}
+
+#page-content-wrapper {
+  width: 100%;
+}
+
+.navbar {
+  padding: 1rem;
+}
+
+.card {
+  margin: 20px 0;
+}
+
+.bg-primary {
+  background-color: #007bff !important;
+}
+
+.bg-warning {
+  background-color: #ffc107 !important;
+}
+
+.bg-success {
+  background-color: #28a745 !important;
+}
+
+.bg-danger {
+  background-color: #dc3545 !important;
+}
+
+/* Toggle sidebar */
+#wrapper.toggled #sidebar-wrapper {
+  margin-left: -250px;
+}

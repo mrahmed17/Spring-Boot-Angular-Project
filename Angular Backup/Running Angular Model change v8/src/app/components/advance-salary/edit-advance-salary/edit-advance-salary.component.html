@@ -1,0 +1,60 @@
+<div class="container mt-5">
+  <h2 class="text-center">Edit Advance Salary</h2>
+
+  <form #advanceSalaryForm="ngForm" (ngSubmit)="onSubmit(advanceSalaryForm)">
+   
+    <div class="form-group">
+      <label for="user">User</label>
+      <select id="user" class="form-control" name="user" [(ngModel)]="advanceSalary.user" required>
+        <option value="" disabled>Select User</option>
+        <option *ngFor="let user of users" [ngValue]="user">
+          {{ user.fullName }}
+        </option>
+      </select>
+      <div *ngIf="advanceSalaryForm.submitted && !advanceSalary.user" class="text-danger">
+        User is required.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="advanceSalary">Advance Salary Amount</label>
+      <input type="number" class="form-control" id="advanceSalary" name="advanceSalary"
+        [(ngModel)]="advanceSalary.advanceSalary" required min="0" step="0.01"
+        placeholder="Enter advance salary amount" />
+      <div *ngIf="advanceSalaryForm.submitted && !advanceSalary.advanceSalary" class="text-danger">
+        Advance salary amount is required.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="advanceDate">Advance Date</label>
+      <input type="date" class="form-control" id="advanceDate" name="advanceDate"
+        [(ngModel)]="advanceSalary.advanceDate" required />
+      <div *ngIf="advanceSalaryForm.submitted && !advanceSalary.advanceDate" class="text-danger">
+        Advance date is required.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="reason">Reason for Advance</label>
+      <textarea class="form-control" id="reason" name="reason" rows="3" [(ngModel)]="advanceSalary.reason"
+        placeholder="Enter the reason for the advance salary" required></textarea>
+      <div *ngIf="advanceSalaryForm.submitted && !advanceSalary.reason" class="text-danger">
+        Reason for advance salary is required.
+      </div>
+    </div>
+
+    <div class="form-group mt-4 text-center">
+      <button type="submit" class="btn btn-primary">
+        Save
+      </button>
+      <button type="button" class="btn btn-secondary ml-2" (click)="cancel()">
+        Cancel
+      </button>
+    </div>
+  </form>
+
+  <div *ngIf="errorMessage" class="alert alert-danger mt-4">
+    {{ errorMessage }}
+  </div>
+</div>

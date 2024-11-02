@@ -1,0 +1,24 @@
+.user-detail {
+  padding: 20px;
+}
+
+.user-photo img {
+  width: 200px;
+  height: 200px;
+  border-radius: 10%;
+}
+
+.f {
+  text-align: center;
+}
+
+.user-detail p {
+  font-size: 0.9em;
+}
+
+@media print {
+  .user-photo img {
+    width: 100px;
+    height: 100px;
+  }
+}

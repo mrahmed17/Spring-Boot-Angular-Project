@@ -1,0 +1,14 @@
+<div class="container">
+ <h2>Company Details</h2>
+
+ <div *ngIf="company">
+  <p> <fa-icon [icon]="faBuilding"></fa-icon> <strong> Company Name:</strong> {{ company.companyName }}</p>
+  <p *ngIf="company.photo">
+   <strong>Company Photo:</strong><br />
+<img [src]="company.photo ? 'http://localhost:8080/uploads/images/companyPhotos' + company.photo : 'static/images/default.jpg'"
+  alt="{{ company.companyName }}" class="img-fluid" />
+  </p>
+ </div>
+
+ <button class="btn btn-primary" (click)="backToList()"> <fa-icon [icon]="faArrowLeft"></fa-icon> Back to Company List</button>
+</div>

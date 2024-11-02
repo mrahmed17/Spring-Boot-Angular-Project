@@ -1,0 +1,18 @@
+<div *ngIf="leaveDetails">
+ <h2>Leave Details</h2>
+ <div class="leave-info">
+  <p><strong>Start Date:</strong> {{ leaveDetails.startDate | date }}</p>
+  <p><strong>End Date:</strong> {{ leaveDetails.endDate | date }}</p>
+  <p><strong>Leave Month:</strong> {{ getMonthName(leaveDetails.leaveMonth) }}</p>
+  <p><strong>Leave Type:</strong> {{ getLeaveTypeName(leaveDetails.leaveType) }}</p>
+  <p><strong>Request Status:</strong> {{ leaveDetails.requestStatus }}</p>
+  <p><strong>Remaining Leave:</strong> {{ leaveDetails.remainingLeave }}</p>
+  <p><strong>Reason:</strong> {{ leaveDetails.reason }}</p> <!-- Added leave reason here -->
+ </div>
+
+ <button routerLink="/leave-list" class="btn btn-primary">Back to List</button>
+</div>
+
+<div *ngIf="!leaveDetails">
+ <p>Loading leave details...</p>
+</div>

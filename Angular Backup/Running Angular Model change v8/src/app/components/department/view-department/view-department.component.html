@@ -1,0 +1,15 @@
+<div class="container">
+ <h2>Department Details</h2>
+ <div class="card">
+  <div class="card-body">
+   <h5 class="card-title">{{ department.departmentName }}</h5>
+   <p class="card-text"><strong>ID:</strong> {{ department.id }}</p>
+   <p class="card-text"><strong>Number of Employees:</strong> {{ department.numOfEmployees }}</p>
+   <p class="card-text"><strong>Photo:</strong></p>
+   <img *ngIf="department.photo" [src]="department.photo" alt="{{ department.departmentName }} Photo"
+    class="img-fluid" />
+   <p *ngIf="!department.photo">No photo available</p>
+   <button class="btn btn-primary" (click)="goBack()">Back to List</button>
+  </div>
+ </div>
+</div>

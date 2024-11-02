@@ -1,0 +1,42 @@
+/* Container for view attendance */
+div {
+  width: 100%;
+  max-width: 500px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #def9df;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Heading */
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* Paragraph styling */
+p {
+  font-size: 16px;
+  color: #333;
+  margin: 10px 0;
+}
+
+/* Strong tags for labels */
+strong {
+  font-weight: bold;
+  color: #555;
+}
+
+/* Responsive design */
+@media (max-width: 600px) {
+  div {
+    width: 90%;
+    padding: 15px;
+  }
+
+  p {
+    font-size: 14px;
+  }
+}

@@ -1,0 +1,49 @@
+<div class="container">
+ <h2>Create Department</h2>
+ <form [formGroup]="departmentForm" (ngSubmit)="onSubmit()" enctype="multipart/form-data">
+  <div class="form-group">
+   <label for="departmentName">Department Name:</label>
+   <input id="departmentName" type="text" class="form-control" formControlName="departmentName"
+    placeholder="Enter department name" />
+   <div
+    *ngIf="departmentForm.get('departmentName')?.invalid && (departmentForm.get('departmentName')?.touched || departmentForm.get('departmentName')?.dirty)">
+    <small class="text-danger">Department name is required.</small>
+   </div>
+  </div>
+
+  <div class="form-group">
+   <label for="numOfEmployees">Number of Employees:</label>
+   <input id="numOfEmployees" type="number" class="form-control" formControlName="numOfEmployees"
+    placeholder="Enter number of employees" />
+   <div
+    *ngIf="departmentForm.get('numOfEmployees')?.invalid && (departmentForm.get('numOfEmployees')?.touched || departmentForm.get('numOfEmployees')?.dirty)">
+    <small class="text-danger">Number of employees must be a non-negative number.</small>
+   </div>
+  </div>
+
+  <div class="form-group">
+   <label for="branchId">Select Branch:</label>
+   <select id="branchId" class="form-control" formControlName="branchId">
+    <option value="" disabled>Select a branch</option>
+    <option *ngFor="let branch of branches" [value]="branch.id">{{ branch.branchName }}</option>
+   </select>
+   <div
+    *ngIf="departmentForm.get('branchId')?.invalid && (departmentForm.get('branchId')?.touched || departmentForm.get('branchId')?.dirty)">
+    <small class="text-danger">Please select a branch.</small>
+   </div>
+  </div>
+
+  <div class="form-group">
+   <label for="photo">Upload Department Photo:</label>
+   <input id="photo" type="file" class="form-control-file" (change)="onPhotoSelected($event)" />
+   <div *ngIf="departmentPhoto" class="mt-2">
+    <small>Selected file: {{ departmentPhoto.name }}</small>
+   </div>
+  </div>
+
+  <button type="submit" class="btn btn-primary" [disabled]="departmentForm.invalid">
+   Create Department
+  </button>
+  <a routerLink="/department/list" class="btn btn-secondary ml-2">Cancel</a>
+ </form>
+</div>

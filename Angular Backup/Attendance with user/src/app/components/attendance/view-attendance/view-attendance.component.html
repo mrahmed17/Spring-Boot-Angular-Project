@@ -1,0 +1,7 @@
+<h2>View Attendance</h2>
+<div *ngIf="attendance">
+ <p><strong>ID:</strong> {{ attendance.id }}</p>
+ <p><strong>Date:</strong> {{ attendance.date | date }}</p>
+ <p><strong>Clock In Time:</strong> {{ attendance.clockInTime | date:'shortTime' }}</p>
+ <p><strong>Clock Out Time:</strong> {{ attendance.clockOutTime | date:'shortTime' }}</p>
+</div>
